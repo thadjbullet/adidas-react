@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import {BrowserRouter as Router, Route} from 'react-router-dom';
 import Sidebar from './Components/Sidebar';
 import media from './media.js';
-//import ProductList from './Components/ProductList';
+import ProductList from './Components/ProductList';
 //import ProductItem from './Components/ProductItem';
 import './App.css';
 
@@ -23,6 +23,7 @@ class App extends Component {
       <Router>
         <View>
           <Sidebar />
+          <ProductList />
         </View>
       </Router>
     );
