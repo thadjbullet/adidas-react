@@ -18,6 +18,7 @@ const Sidebar = styled.aside`
   ${media.xs('max')`
     background: #0e0e0e;
     height: 64px;
+    max-width: 100%;
   `}
 `;
 const Container = styled.div`
