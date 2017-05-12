@@ -1,24 +1,26 @@
-.App {
-  text-align: center;
+/*---------Fonts---------*/
+
+@font-face {
+    font-family: 'Avenir';
+    font-style: normal;
+    font-weight: 400;
+    src: url(./fonts/avenir-next-regular/avenir-next-regular.ttf) format("truetype"), url(./fonts/avenir-next-regular/avenir-next-regular.woff) format("woff")
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+@font-face {
+    font-family: 'AvenirBold';
+    font-style: normal;
+    font-weight: 400;
+    src: url(./fonts/avenir-next-bold/avenir-next-bold.ttf) format("truetype"), url(./fonts/avenir-next-bold/avenir-next-bold.woff) format("woff")
 }
 
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
+@font-face {
+    font-family: 'AndaleMono';
+    font-style: normal;
+    font-weight: 400;
+    src: url(./fonts/andale-mono/andale-mono.ttf) format("truetype"), url(./fonts/andale-mono/andale-mono.woff) format("woff")
 }
 
-.App-intro {
-  font-size: large;
-}
-
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+* {
+    transition: all 0.3s ease;
 }
