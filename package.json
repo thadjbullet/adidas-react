@@ -10,7 +10,15 @@
     "styled-components": "^1.4.6"
   },
   "devDependencies": {
-    "react-scripts": "0.9.5"
+    "eslint": "^3.19.0",
+    "eslint-config-airbnb": "^14.1.0",
+    "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-jsx-a11y": "^5.0.1",
+    "eslint-plugin-react": "^7.0.0",
+    "husky": "^0.13.3",
+    "react-scripts": "0.9.5",
+    "lint": "$(npm bin)/eslint src",
+    "prepush": "npm run lint"
   },
   "scripts": {
     "start": "react-scripts start",
