@@ -1,4 +1,4 @@
-import {css} from 'styled-components';
+import { css } from 'styled-components';
 
 const s = {
   media: {
@@ -16,7 +16,7 @@ const s = {
  * @param {string} point - media query breakpoint
  * @param {string} prefix - min | max prefix size
  * @return {object} css property
- * 
+ *
  * ${media.sm('min')`diplsay: block`}
  */
 const media = Object.keys(s.media).reduce((opt, point) => {
@@ -24,7 +24,7 @@ const media = Object.keys(s.media).reduce((opt, point) => {
   const cssBody = opt;
   cssBody[point] = prefix => (...args) => {
     if (!prefix || !['min', 'max'].includes(prefix)) {
-      console.warn('The prefix value must be `min` or `max`');
+      global.console.warn('The prefix value must be `min` or `max`');
     }
     return css`
       @media (${prefix}-width: ${query}) {

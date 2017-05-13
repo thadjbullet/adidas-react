@@ -1,6 +1,6 @@
-import React, {Component} from 'react';
+import React from 'react';
 import styled from 'styled-components';
-import media from '../../media.js';
+import media from '../../media';
 import Header from './Header';
 
 const Container = styled.main`
@@ -9,10 +9,8 @@ const Container = styled.main`
   flex: 1;
 `;
 
-export default () => {
-  return (
-    <Container>
-      <Header />
-    </Container>
-  );
-};
+export default () => (
+  <Container>
+    <Header />
+  </Container>
+);

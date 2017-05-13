@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
-import meida from '../../../media.js';
+import meida from '../../../media';
+
+const img = require('./logo.png');
 
 const Logo = styled.div`
   display: flex;
@@ -34,12 +36,10 @@ const Link = styled.a`
   align-self: center;
 `;
 
-export default () => {
-  return (
-    <Logo>
-      <Link href="/">
-        <Img src={require('./logo.png')} />
-      </Link>
-    </Logo>
-  );
-};
+export default () => (
+  <Logo>
+    <Link href="/">
+      <Img src={img} />
+    </Link>
+  </Logo>
+);

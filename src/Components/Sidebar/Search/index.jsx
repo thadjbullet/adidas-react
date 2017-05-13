@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
-import media from '../../../media.js';
+import media from '../../../media';
+
+const searchIcon = require('./group.png');
 
 const Form = styled.form`
   padding: 0;
@@ -15,7 +17,7 @@ const Label = styled.label`
 `;
 
 const Input = styled.input`
-  background: url(${require('./group.png')}) #0e0e0e no-repeat 4px center;
+  background: url(${searchIcon}) #0e0e0e no-repeat 4px center;
   border: 0;
   border-bottom: 4px solid #3c3c3c;
   box-sizing: border-box;
@@ -34,11 +36,9 @@ const Input = styled.input`
   }
 `;
 
-export default () => {
-  return (
-    <Form>
-      <Label />
-      <Input />
-    </Form>
-  );
-};
+export default () => (
+  <Form>
+    <Label />
+    <Input />
+  </Form>
+);

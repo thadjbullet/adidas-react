@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import media from '../../../media.js';
+import media from '../../../media';
 import SuvNav from './SubNav';
 
 const Nav = styled.nav`
@@ -51,13 +51,11 @@ const MenuLink = styled.a`
   }
 `;
 
-export default () => {
-  return (
-    <Nav>
-      <MenuLink href="#">Shoes</MenuLink>
-      <SuvNav />
-      <MenuLink href="#">Brands</MenuLink>
-      <MenuLink href="#">Micoach</MenuLink>
-    </Nav>
+export default () => (
+  <Nav>
+    <MenuLink href="#">Shoes</MenuLink>
+    <SuvNav />
+    <MenuLink href="#">Brands</MenuLink>
+    <MenuLink href="#">Micoach</MenuLink>
+  </Nav>
   );
-};

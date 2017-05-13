@@ -1,6 +1,8 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import styled from 'styled-components';
-import media from '../../../../media.js';
+import media from '../../../../media';
+
+const logo = require('./filter@3x.png');
 
 const Div = styled.div`
   display: flex;
@@ -10,12 +12,10 @@ const Div = styled.div`
 `;
 
 const Img = styled.img`
-
+  wi
 `;
-export default () => {
-  return (
-    <Div>
-      <Img src={require('./filter@3x.png')} />
-    </Div>
-  );
-};
+export default () => (
+  <Div>
+    <Img src={logo} />
+  </Div>
+);

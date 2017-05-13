@@ -27,12 +27,10 @@ const Link = styled.a`
   }
 `;
 
-export default () => {
-  return (
-    <Nav>
-      <Link href="#">Shoes</Link>
-      <Link href="#">Clothing</Link>
-      <Link href="#">Accesories</Link>
-    </Nav>
+export default () => (
+  <Nav>
+    <Link href="#">Shoes</Link>
+    <Link href="#">Clothing</Link>
+    <Link href="#">Accesories</Link>
+  </Nav>
   );
-};
