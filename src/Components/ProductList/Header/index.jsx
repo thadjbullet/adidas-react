@@ -16,6 +16,12 @@ const Header = styled.header`
     flex-direction: column;
     padding: 15px 0 15px 20px;
   `}
+
+  ${media.sm('max')`
+    align-items: flex-start;
+    flex-direction: column;
+    padding: 15px 0 15px 20px;
+  `}
 `;
 
 export default () => (

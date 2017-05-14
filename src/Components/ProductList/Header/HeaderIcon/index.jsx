@@ -15,6 +15,10 @@ const Div = styled.div`
   ${media.xs('max')`
     display: none;
   `}
+
+  ${media.sm('max')`
+    display: none;
+  `}
 `;
 
 const Img = styled.img`
