@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 import media from '../../../media';
 import SuvNav from './SubNav';
 
@@ -14,7 +15,7 @@ const Nav = styled.nav`
   `}
 `;
 
-const MenuLink = styled.a`
+const MenuLink = styled(Link)`
   color: #3c3c3c;
   display: flex;
   font-family: 'AvenirBold';
@@ -53,9 +54,9 @@ const MenuLink = styled.a`
 
 export default () => (
   <Nav>
-    <MenuLink href="#">Shoes</MenuLink>
+    <MenuLink to="#">Shoes</MenuLink>
     <SuvNav />
-    <MenuLink href="#">Brands</MenuLink>
-    <MenuLink href="#">Micoach</MenuLink>
+    <MenuLink to="#">Brands</MenuLink>
+    <MenuLink to="#">Micoach</MenuLink>
   </Nav>
-  );
+);
