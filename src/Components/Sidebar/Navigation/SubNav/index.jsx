@@ -1,12 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
-const Nav = styled.nav`
-  
-`;
-
-const MenuLink = styled(Link)`
+const Link = styled(NavLink)`
   color: #3c3c3c;
   display: flex;
   justify-content: center;
@@ -29,9 +25,9 @@ const MenuLink = styled(Link)`
 `;
 
 export default () => (
-  <Nav>
-    <MenuLink to="#">Shoes</MenuLink>
-    <MenuLink to="#">Clothing</MenuLink>
-    <MenuLink to="#">Accesories</MenuLink>
-  </Nav>
+  <nav>
+    <Link to="#">Shoes</Link>
+    <Link to="#">Clothing</Link>
+    <Link to="#">Accesories</Link>
+  </nav>
 );

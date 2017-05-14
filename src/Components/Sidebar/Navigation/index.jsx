@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import media from '../../../media';
 import SuvNav from './SubNav';
 
@@ -15,7 +15,7 @@ const Nav = styled.nav`
   `}
 `;
 
-const MenuLink = styled(Link)`
+const Link = styled(NavLink)`
   color: #3c3c3c;
   display: flex;
   font-family: 'AvenirBold';
@@ -30,21 +30,21 @@ const MenuLink = styled(Link)`
 
   &:first-child {
     color: #fff;
-  }
 
-  &:first-child:after {
-    align-self: center;
-    content: '';
-    display: flex;
-    width: 6px;
-    height: 6px;
-    border: 3px solid #fff;
-    border-left: none;
-    border-top: none;
-    border-radius: 3px;
-    transform: rotate(45deg);
-    margin-left: 12px;
-    transition-duration: 0.5s;
+    &:after {
+      align-self: center;
+      content: '';
+      display: flex;
+      width: 6px;
+      height: 6px;
+      border: 3px solid #fff;
+      border-left: none;
+      border-top: none;
+      border-radius: 3px;
+      transform: rotate(45deg);
+      margin-left: 12px;
+      transition-duration: 0.5s;
+    }
   }
 
   &:first-child:hover:after {
@@ -54,9 +54,9 @@ const MenuLink = styled(Link)`
 
 export default () => (
   <Nav>
-    <MenuLink to="#">Shoes</MenuLink>
+    <Link to="#">Shoes</Link>
     <SuvNav />
-    <MenuLink to="#">Brands</MenuLink>
-    <MenuLink to="#">Micoach</MenuLink>
+    <Link to="#">Brands</Link>
+    <Link to="#">Micoach</Link>
   </Nav>
 );
