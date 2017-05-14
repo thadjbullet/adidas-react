@@ -3,8 +3,7 @@ import styled from 'styled-components';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Sidebar from './Components/Sidebar';
 import media from './media';
-import ProductList from './Components/ProductList';
-// import ProductItem from './Components/ProductItem';
+import ProductList from './Components/List';
 import './App.css';
 
 const View = styled.div`

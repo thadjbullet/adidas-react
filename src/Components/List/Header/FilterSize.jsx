@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import media from '../../../../media';
+import media from '../../../media';
 
 const Container = styled.div`
   ${media.xs('max')`
