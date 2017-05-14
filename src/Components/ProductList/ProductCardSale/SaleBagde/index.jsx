@@ -3,7 +3,6 @@ import styled from 'styled-components';
 
 const Span = styled.span`
   background: #ff5c5c;
-  
   color: #fff;
   font-family: 'Avenir';
   right: 17px;
