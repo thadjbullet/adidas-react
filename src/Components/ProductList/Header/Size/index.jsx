@@ -1,13 +1,18 @@
 import React from 'react';
 import styled from 'styled-components';
-import media from '../../../../media';
+// import media from '../../../media';
 
 const Container = styled.div`
-  background: #fff;
-  
-  ${media.xs('min')`
-    padding: 0 30px;
-  `}
+
+`;
+
+const Span = styled.span`
+  color: #4d42f8;
+  cursor: default;
+  font-family: 'AvenirBold';
+  font-size: 24px;
+  padding-right: 8px;
+  text-transform: uppercase;
 `;
 
 const Button = styled.button`
@@ -17,7 +22,7 @@ const Button = styled.button`
   font-family: 'AvenirBold';
   font-size: 24px;
   color: ${props => (props.select ? '#4d42f8' : '#d6d6d6')};
-  padding: 0 15px 0 0;
+  padding: 0 4px;
   text-transform: uppercase;
 
   &:hover {
@@ -27,7 +32,13 @@ const Button = styled.button`
 
 export default () => (
   <Container>
-    <Button select>Man</Button>
-    <Button>Woman</Button>
+    <Span>Size</Span>
+    <Button>36</Button>
+    <Button>37</Button>
+    <Button>38</Button>
+    <Button>39</Button>
+    <Button>40</Button>
+    <Button select>41</Button>
+    <Button>42</Button>
   </Container>
 );
