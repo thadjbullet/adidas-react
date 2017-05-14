@@ -21,7 +21,7 @@ const Img = styled.img`
 
 const Link = styled(NavLink)`
   background: #fff;
-  background-image: linear-gradient(107deg, #0c09bf, #966dd8);
+  background-image: linear-gradient(180deg, #0c09bf, #966dd8);
   color: #fff;
   display: block;
   font-family: 'AvenirBold';
