@@ -20,7 +20,3 @@
     font-weight: 400;
     src: url(./fonts/andale-mono/andale-mono.ttf) format("truetype"), url(./fonts/andale-mono/andale-mono.woff) format("woff")
 }
-
-* {
-    transition: all 0.3s ease;
-}

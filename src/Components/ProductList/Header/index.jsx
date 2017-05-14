@@ -1,6 +1,6 @@
-import React, {Component} from 'react';
+import React from 'react';
 import styled from 'styled-components';
-import media from '../../../media.js';
+import media from '../../../media';
 import Icon from './HeaderIcon';
 
 const Header = styled.header`
@@ -11,10 +11,8 @@ const Header = styled.header`
   padding: 11px 25px;
 `;
 
-export default () => {
-  return (
-    <Header>
-      <Icon />
-    </Header>
-  );
-};
+export default () => (
+  <Header>
+    <Icon />
+  </Header>
+);
