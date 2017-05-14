@@ -8,6 +8,12 @@ const Container = styled.div`
   ${media.xs('min')`
     padding: 0 30px;
   `}
+
+  ${media.sm('max')`
+    padding: 0;
+  `}
+
+
 `;
 
 const Button = styled.button`
