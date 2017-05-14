@@ -1,9 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
-// import media from '../../../media';
+import media from '../../../../media';
 
 const Container = styled.div`
-
+  ${media.xs('max')`
+    padding-top: 10px;
+  `}
 `;
 
 const Span = styled.span`
@@ -11,7 +13,7 @@ const Span = styled.span`
   cursor: default;
   font-family: 'AvenirBold';
   font-size: 24px;
-  padding-right: 8px;
+  padding-right: 17px;
   text-transform: uppercase;
 `;
 
