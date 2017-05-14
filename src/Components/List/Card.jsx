@@ -1,8 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Col } from 'react-flexbox-grid';
 import { NavLink } from 'react-router-dom';
-import Badge from './SaleBagde';
 
 const Card = styled.div`
   background: #f4f4f4;
@@ -21,8 +19,7 @@ const Img = styled.img`
 
 const Link = styled(NavLink)`
   background: #fff;
-  background-image: linear-gradient(180deg, #0c09bf, #966dd8);
-  color: #fff;
+  color: #111;
   display: block;
   font-family: 'AvenirBold';
   font-size: 30px;
@@ -32,17 +29,14 @@ const Link = styled(NavLink)`
   width: 100%;
 
   &:hover {
-    background-image: linear-gradient(107deg, #0c09bf, #966dd8);
+    background-image: linear-gradient(180deg, #0c09bf, #966dd8);
     color: #fff;
   }
 `;
 
 export default props => (
-  <Col xs={12} sm={6} ms={4} lg={4}>
-    <Card>
-      <Img src={props.image} />
-      <Link to="/item">{props.cost}</Link>
-      <Badge />
-    </Card>
-  </Col>
+  <Card>
+    <Img src={props.image} />
+    <Link to="/item">{props.cost}</Link>
+  </Card>
 );

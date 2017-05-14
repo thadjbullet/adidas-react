@@ -1,9 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 import media from '../../../media';
-import Icon from './HeaderIcon';
-import Gender from './Gender';
-import Size from './Size';
+import Icon from './Icon';
+import Gender from './FilterGender';
+import Size from './FilterSize';
 
 const Header = styled.header`
   border-bottom: 4px solid #e7e7e7;
