@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { Col } from 'react-flexbox-grid';
 import { NavLink } from 'react-router-dom';
+import Badge from './SaleBagde';
 
 const Card = styled.div`
   background: #f4f4f4;
@@ -20,7 +21,7 @@ const Img = styled.img`
 
 const Link = styled(NavLink)`
   background: #fff;
-  background-image: linear-gradient(107deg, #0c09bf, #966dd8;
+  background-image: linear-gradient(107deg, #0c09bf, #966dd8);
   color: #fff;
   display: block;
   font-family: 'AvenirBold';
@@ -41,6 +42,7 @@ export default props => (
     <Card>
       <Img src={props.image} />
       <Link to="/item">{props.cost}</Link>
+      <Badge />
     </Card>
   </Col>
 );
