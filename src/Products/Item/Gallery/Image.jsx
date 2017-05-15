@@ -8,12 +8,12 @@ const Image = styled.img`
   box-sizing: border-box;
   outline-color: #fff;
   outline: ${props => (props.sel ? '5px solid #e7e7e7' : '')};
-  outline-style: solid;
   cursor: pointer;
   margin: 0 14px;
 
   &:hover {
     outline: 5px solid #e7e7e7;
+    outline-style: solid;
   }
 `;
 
