@@ -4,7 +4,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { Row, Col } from 'react-flexbox-grid';
 
-import Header from './Filter';
+import Filter from './Filter';
 import Card from './Card';
 
 const Container = styled.main`
@@ -19,7 +19,7 @@ const Content = styled.div`
 
 export default () => (
   <Container>
-    <Header />
+    <Filter />
     <Content>
       <Row>
         <Col xs={12} sm={6} ms={4} lg={4}>
