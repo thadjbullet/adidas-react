@@ -1,7 +1,9 @@
 /* eslint-disable global-require */
+
 import React from 'react';
 import styled from 'styled-components';
-import media from '../../../media';
+
+import media from '../../media';
 
 const Form = styled.form`
   padding: 0;
