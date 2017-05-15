@@ -24,7 +24,7 @@ const Button = styled.button`
   font-family: 'AvenirBold';
   font-size: 24px;
   color: ${props => (props.select ? '#4d42f8' : '#d6d6d6')};
-  padding: 0 17px 0 0;
+  margin: 0 5px 0 0;
   text-transform: uppercase;
 
   &:hover {

@@ -15,6 +15,7 @@ const Span = styled.span`
   font-family: 'AvenirBold';
   font-size: 24px;
   padding-right: 17px;
+  padding-left: 5px;
   text-transform: uppercase;
 `;
 
