@@ -62,7 +62,7 @@ const Lines = styled.i`
 const MoreImagesButton = styled.button`
   border: none;
   background: none;
-  font-family: 'AvenirNextReg';
+  font-family: 'Avenir';
   color: #c0c0c0;
   font-size: 14px;
   text-align: left;

@@ -14,4 +14,4 @@ Build
 Lint check
 `yarn lint`
 
-[Link to Surge.sh](http://cooing-map.surge.sh) - http://cooing-map.surge.sh
+[Link to Surge.sh](http://glamorous-dinner.surge.sh) - glamorous-dinner.surge.sh
