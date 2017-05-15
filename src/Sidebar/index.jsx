@@ -1,10 +1,10 @@
 import React from 'react';
-//import {BrowserRouter as Router, Route, Link} from 'react-router-dom';
 import styled from 'styled-components';
+
 import Logo from './Logo';
 import Search from './Search';
 import Nav from './Navigation';
-import media from '../../media.js';
+import media from '../media';
 
 const Sidebar = styled.aside`
   background: #0e0e0e;
@@ -27,14 +27,12 @@ const Container = styled.div`
   width: 100%;
 `;
 
-export default () => {
-  return (
-    <Sidebar>
-      <Container>
-        <Logo />
-        <Search />
-        <Nav />
-      </Container>
-    </Sidebar>
-  );
-};
+export default () => (
+  <Sidebar>
+    <Container>
+      <Logo />
+      <Search />
+      <Nav />
+    </Container>
+  </Sidebar>
+);

@@ -1,11 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
+import { NavLink } from 'react-router-dom';
 
-const Nav = styled.nav`
-  
-`;
-
-const Link = styled.a`
+const Link = styled(NavLink)`
   color: #3c3c3c;
   display: flex;
   justify-content: center;
@@ -27,12 +24,10 @@ const Link = styled.a`
   }
 `;
 
-export default () => {
-  return (
-    <Nav>
-      <Link href="#">Shoes</Link>
-      <Link href="#">Clothing</Link>
-      <Link href="#">Accesories</Link>
-    </Nav>
-  );
-};
+export default () => (
+  <nav>
+    <Link to="#">Shoes</Link>
+    <Link to="#">Clothing</Link>
+    <Link to="#">Accesories</Link>
+  </nav>
+);

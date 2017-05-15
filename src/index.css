@@ -1,5 +1,32 @@
+/*---------Fonts---------*/
+
+@font-face {
+    font-family: 'Avenir';
+    font-style: normal;
+    font-weight: 400;
+    src: url(./fonts/avenir-next-regular/avenir-next-regular.ttf) format("truetype"), url(./fonts/avenir-next-regular/avenir-next-regular.woff) format("woff")
+}
+
+@font-face {
+    font-family: 'AvenirBold';
+    font-style: normal;
+    font-weight: 400;
+    src: url(./fonts/avenir-next-bold/avenir-next-bold.ttf) format("truetype"), url(./fonts/avenir-next-bold/avenir-next-bold.woff) format("woff")
+}
+
+@font-face {
+    font-family: 'AndaleMono';
+    font-style: normal;
+    font-weight: 400;
+    src: url(./fonts/andale-mono/andale-mono.ttf) format("truetype"), url(./fonts/andale-mono/andale-mono.woff) format("woff")
+}
+
 body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
+}
+
+* {
+    transition: all 0.3s ease;
 }

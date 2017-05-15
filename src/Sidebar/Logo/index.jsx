@@ -1,6 +1,10 @@
+/* eslint-disable global-require */
+
 import React from 'react';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import meida from '../../../media.js';
+
+import meida from '../../media';
 
 const Logo = styled.div`
   display: flex;
@@ -30,16 +34,14 @@ const Img = styled.img`
   `}
 `;
 
-const Link = styled.a`
+const LogoLink = styled(Link)`
   align-self: center;
 `;
 
-export default () => {
-  return (
-    <Logo>
-      <Link href="/">
-        <Img src={require('./logo.png')} />
-      </Link>
-    </Logo>
-  );
-};
+export default () => (
+  <Logo>
+    <LogoLink to="/">
+      <Img src={require('./logo.svg')} />
+    </LogoLink>
+  </Logo>
+);

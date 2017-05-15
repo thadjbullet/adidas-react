@@ -1,11 +1,10 @@
-import React, {Component} from 'react';
+import React from 'react';
 import styled from 'styled-components';
-import {BrowserRouter as Router, Route} from 'react-router-dom';
-import Sidebar from './Components/Sidebar';
-import media from './media.js';
-//import ProductList from './Components/ProductList';
-//import ProductItem from './Components/ProductItem';
-import './App.css';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+
+import Sidebar from './Sidebar';
+import media from './media';
+import ProductList from './Products/List';
 
 const View = styled.div`
   display: flex;
@@ -17,16 +16,11 @@ const View = styled.div`
   `}
 `;
 
-class App extends Component {
-  render() {
-    return (
-      <Router>
-        <View>
-          <Sidebar />
-        </View>
-      </Router>
-    );
-  }
-}
-
-export default App;
+export default () => (
+  <Router>
+    <View>
+      <Sidebar />
+      <Route exact path="/" component={ProductList} />
+    </View>
+  </Router>
+);

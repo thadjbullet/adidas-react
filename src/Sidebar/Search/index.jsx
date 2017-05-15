@@ -1,6 +1,9 @@
+/* eslint-disable global-require */
+
 import React from 'react';
 import styled from 'styled-components';
-import media from '../../../media.js';
+
+import media from '../../media';
 
 const Form = styled.form`
   padding: 0;
@@ -34,11 +37,9 @@ const Input = styled.input`
   }
 `;
 
-export default () => {
-  return (
-    <Form>
-      <Label />
-      <Input />
-    </Form>
-  );
-};
+export default () => (
+  <Form>
+    <Label />
+    <Input />
+  </Form>
+);
