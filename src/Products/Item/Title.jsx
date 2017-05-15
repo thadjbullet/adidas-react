@@ -4,7 +4,7 @@ import styled from 'styled-components';
 const Header = styled.header`
   align-items: flex-start;
   justify-content: space-between;
-  max-height: 40px;
+  max-height: 0;
   position: relative;
 `;
 
