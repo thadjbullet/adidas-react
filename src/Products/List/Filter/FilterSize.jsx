@@ -25,7 +25,7 @@ const Button = styled.button`
   cursor: pointer;
   font-family: 'AvenirBold';
   font-size: 24px;
-  color: ${props => (props.select ? '#4d42f8' : '#d6d6d6')};
+  color: ${props => (props.isActive ? '#4d42f8' : '#d6d6d6')};
   padding: 0 4px;
   text-transform: uppercase;
 
@@ -42,7 +42,7 @@ export default () => (
     <Button>38</Button>
     <Button>39</Button>
     <Button>40</Button>
-    <Button select>41</Button>
+    <Button isActive>41</Button>
     <Button>42</Button>
   </Container>
 );
