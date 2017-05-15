@@ -23,7 +23,7 @@ const Img = styled.img`
 
 const Link = styled(NavLink)`
   background: #fff;
-  background-image: ${props => (props.sale ? 'linear-gradient(180deg, #0c09bf, #966dd8)' : '')};
+  background-image: ${props => (props.sale ? 'linear-gradient(107deg, #0c09bf, #966dd8)' : '')};
   color: ${props => (props.sale ? '#fff' : '#111')};
   display: block;
   font-family: 'AvenirBold';
@@ -34,7 +34,7 @@ const Link = styled(NavLink)`
   width: 100%;
 
   &:hover {
-    background-image: ${props => (props.sale ? 'linear-gradient(107deg, #0c09bf, #966dd8)' : 'linear-gradient(180deg, #0c09bf, #966dd8)')};
+    background-image: ${props => (props.sale ? 'linear-gradient(180deg, #0c09bf, #966dd8)' : 'linear-gradient(107deg, #0c09bf, #966dd8)')};
     color: #fff;
   }
 `;
