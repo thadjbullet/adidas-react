@@ -41,7 +41,7 @@ const LogoLink = styled(Link)`
 export default () => (
   <Logo>
     <LogoLink to="/">
-      <Img src={require('./logo.png')} />
+      <Img src={require('./logo.svg')} />
     </LogoLink>
   </Logo>
 );
