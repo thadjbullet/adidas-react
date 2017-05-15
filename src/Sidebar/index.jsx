@@ -11,7 +11,7 @@ const Sidebar = styled.aside`
   display: flex;
   flex-basis: 33.333334%;
   justify-content: center;
-  height: 100vh;
+  min-height: 100vh;
   max-width: 414px;
   padding: 0 22px;
 
