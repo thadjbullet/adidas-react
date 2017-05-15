@@ -2,6 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 
+import Label from '../../components/Label';
+
 const Card = styled.div`
   background: #f4f4f4;
   padding: 9px;
@@ -19,7 +21,8 @@ const Img = styled.img`
 
 const Link = styled(NavLink)`
   background: #fff;
-  color: #111;
+  background-image: ${props => (props.sale ? 'linear-gradient(180deg, #0c09bf, #966dd8)' : '')};
+  color: ${props => (props.sale ? '#fff' : '#111')};
   display: block;
   font-family: 'AvenirBold';
   font-size: 30px;
@@ -29,14 +32,21 @@ const Link = styled(NavLink)`
   width: 100%;
 
   &:hover {
-    background-image: linear-gradient(180deg, #0c09bf, #966dd8);
+    background-image: ${props => (props.sale ? 'linear-gradient(107deg, #0c09bf, #966dd8)' : 'linear-gradient(180deg, #0c09bf, #966dd8)')};
     color: #fff;
   }
+`;
+
+const SaleLabel = styled(Label)`
+  position: absolute;
+  top: 17px;
+  right: 17px;
 `;
 
 export default props => (
   <Card>
     <Img src={props.image} />
-    <Link to="/item">{props.cost}</Link>
+    <Link to="/item" sale={props.sale}>{props.cost}</Link>
+    {props.sale && <SaleLabel>Sale</SaleLabel>}
   </Card>
 );

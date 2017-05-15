@@ -1,7 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
-import media from '../../../media';
+
+import media from '../../media';
 import SuvNav from './SubNav';
 
 const Nav = styled.nav`

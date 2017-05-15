@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+
 import media from '../../../media';
 
 const logo = require('./filter@3x.png');
