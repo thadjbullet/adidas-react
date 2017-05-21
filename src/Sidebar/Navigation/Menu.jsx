@@ -51,11 +51,7 @@ export default class Menu extends React.Component {
   render() {
     return (
       <div>
-        <Title
-          onClick={this.handleClick}
-          hasSubmenu={this.props.hasSubmenu}
-          isOpen={this.state.isOpen}
-        >
+        <Title onClick={this.handleClick} isOpen={this.state.isOpen}>
           {this.props.title}
         </Title>
         {this.state.isOpen && this.props.children}
