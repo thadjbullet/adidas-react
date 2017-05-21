@@ -18,7 +18,7 @@ const Nav = styled.nav`
 
 export default () => (
   <Nav>
-    <MenuItem to="#" isOpen hasSubmenu>Football</MenuItem>
+    <MenuItem to="#" hasSubmenu>Football</MenuItem>
     <MenuItem to="#" hasSubmenu>Running</MenuItem>
     <MenuItem to="#" hasSubmenu>Basketball</MenuItem>
     <MenuItem to="#">Brands</MenuItem>

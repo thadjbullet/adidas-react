@@ -20,10 +20,14 @@ const Link = styled(NavLink)`
   }
 `;
 
-export default () => (
-  <nav>
+const Nav = styled.nav`
+    display: ${props => (props.isOpen && props.hasSubmenu ? 'block' : 'none')};
+`;
+
+export default props => (
+  <Nav isOpen={props.isOpen} hasSubmenu={props.hasSubmenu}>
     <Link to="#">Shoes</Link>
     <Link to="#">Clothing</Link>
     <Link to="#">Accesories</Link>
-  </nav>
+  </Nav>
 );

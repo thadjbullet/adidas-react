@@ -2,6 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 
+import SubNav from './SubNav/index';
+
 const Link = styled(NavLink)`
   color: ${props => (props.isOpen ? '#fff' : '#3c3c3c')};
   display: flex;
@@ -26,27 +28,7 @@ const Link = styled(NavLink)`
       border-left: none;
       border-top: none;
       border-radius: 3px;
-      transform: rotate(225deg);
-      margin-left: 12px;
-      transition-duration: 0.3s;
-    }
-     &:hover:after {
-       border-color: #fff;
-     }
-  `}
-
-  ${props => props.hasSubmenu && props.isOpen && `
-    &:after {
-      align-self: center;
-      content: '';
-      display: flex;
-      width: 6px;
-      height: 6px;
-      border: 3px solid ${props.isOpen ? '#fff' : '#3c3c3c'};
-      border-left: none;
-      border-top: none;
-      border-radius: 3px;
-      transform: rotate(45deg);
+      transform: ${props.isOpen ? 'rotate(45deg)' : 'rotate(225deg)'};
       margin-left: 12px;
       transition-duration: 0.3s;
     }
@@ -59,17 +41,29 @@ const Link = styled(NavLink)`
 export default class MenuItem extends React.Component {
   constructor(props) {
     super(props);
+    this.state = { isOpen: false };
+    this.handleOnClick = this.handleOnClick.bind(this);
+  }
+
+  handleOnClick() {
+    this.setState({
+      isOpen: !this.state.isOpen,
+    });
   }
 
   render() {
     return (
-      <Link
-        to={this.props.to}
-        isOpen={this.props.isOpen}
-        hasSubmenu={this.props.hasSubmenu}
-      >
-        {this.props.children}
-      </Link>
+      <div>
+        <Link
+          to={this.props.to}
+          isOpen={this.state.isOpen}
+          hasSubmenu={this.props.hasSubmenu}
+          onClick={this.handleOnClick}
+        >
+          {this.props.children}
+        </Link>
+        <SubNav isOpen={this.state.isOpen} hasSubmenu={this.props.hasSubmenu} />
+      </div>
     );
   }
 }
