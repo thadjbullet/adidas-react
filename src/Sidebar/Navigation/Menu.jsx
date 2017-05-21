@@ -25,7 +25,7 @@ const Title = styled.div`
     border-left: none;
     border-top: none;
     border-radius: 3px;
-    transform: ${props => (props.isOpen ? 'rotate(45deg)' : 'rotate(225deg)')};
+    transform: ${props => (props.isOpen ? 'rotate(225deg)' : 'rotate(45deg)')};
     margin-left: 12px;
     transition-duration: 0.3s;
 
