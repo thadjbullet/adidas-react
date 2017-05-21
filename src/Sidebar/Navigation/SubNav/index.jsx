@@ -15,10 +15,6 @@ const Link = styled(NavLink)`
     padding-bottom: 34px;
   }
 
-  &:first-child {
-    color: #fff;
-  }
-
   &:hover {
     color: #fff;
   }
