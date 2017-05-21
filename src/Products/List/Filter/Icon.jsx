@@ -6,19 +6,15 @@ import media from '../../../media';
 const logo = require('./filter@3x.png');
 
 const Div = styled.div`
-  display: flex;
-  background: #ebebeb;
-  justify-content: center;
-  align-items: center;
-  height: 55px;
-  width: 55px;
+  display: none;
 
-  ${media.xs('max')`
-    display: none;
-  `}
-
-  ${media.sm('max')`
-    display: none;
+  ${media.lg('min')`
+    display: flex;
+    background: #ebebeb;
+    justify-content: center;
+    align-items: center;
+    height: 55px;
+    width: 55px;
   `}
 `;
 

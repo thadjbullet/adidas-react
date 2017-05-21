@@ -9,16 +9,15 @@ import media from '../media';
 const Sidebar = styled.aside`
   background: #0e0e0e;
   display: flex;
-  flex-basis: 33.333334%;
-  justify-content: center;
-  min-height: 100vh;
-  max-width: 414px;
+  min-height: 64px;
+  max-width: 100%;
   padding: 0 22px;
 
-  ${media.xs('max')`
-    background: #0e0e0e;
-    height: 64px;
-    max-width: 100%;
+  ${media.xs('min')`
+    flex-basis: 33.333334%;
+    justify-content: center;
+    min-height: 100vh;
+    max-width: 414px;
   `}
 `;
 const Container = styled.div`

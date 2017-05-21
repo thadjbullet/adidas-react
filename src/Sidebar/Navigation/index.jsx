@@ -3,61 +3,66 @@ import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 
 import media from '../../media';
-import SuvNav from './SubNav';
+import Menu from './Menu';
 
 const Nav = styled.nav`
-  align-self: center;
-  font-size: 24px;
-  padding-top: 148px;
-  text-align: center;
+  display: none;
 
-  ${media.xs('max')`
-    display: none;
+  ${media.xs('min')`
+    display: block;
+    align-self: center;
+    font-size: 24px;
+    padding-top: 148px;
+    text-align: center;
   `}
 `;
 
 const Link = styled(NavLink)`
   color: #3c3c3c;
   display: flex;
-  font-family: 'AvenirBold';
   justify-content: center;
-  padding: 13px;
+  font-family: 'AndaleMono';
+  padding: 11px 0;
   text-decoration: none;
   text-transform: uppercase;
 
+  &:last-child {
+    padding-bottom: 34px;
+  }
+
   &:hover {
     color: #fff;
-  }
-
-  &:first-child {
-    color: #fff;
-
-    &:after {
-      align-self: center;
-      content: '';
-      display: flex;
-      width: 6px;
-      height: 6px;
-      border: 3px solid #fff;
-      border-left: none;
-      border-top: none;
-      border-radius: 3px;
-      transform: rotate(45deg);
-      margin-left: 12px;
-      transition-duration: 0.5s;
-    }
-  }
-
-  &:first-child:hover:after {
-    transform: rotate(-135deg);
   }
 `;
 
 export default () => (
   <Nav>
-    <Link to="#">Shoes</Link>
-    <SuvNav />
-    <Link to="#">Brands</Link>
-    <Link to="#">Micoach</Link>
+    <Menu title="football">
+      <Link to="/football/shoes">shoes</Link>
+      <Link to="/football/clothing">
+        clothing
+      </Link>
+      <Link to="/football/accesories">
+        accesories
+      </Link>
+    </Menu>
+    <Menu title="running">
+      <Link to="/running/shoes">shoes</Link>
+      <Link to="/running/clothing">
+        clothing
+      </Link>
+      <Link to="/running/accesories">
+        accesories
+      </Link>
+    </Menu>
+    <Menu title="basketball">
+      <Link to="/basketball/shoes">shoes</Link>
+      <Link to="/basketball/clothing">
+        clothing
+      </Link>
+      <Link to="/basketball/accesories">
+        accesories
+      </Link>
+    </Menu>
   </Nav>
 );
