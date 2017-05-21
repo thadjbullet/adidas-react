@@ -37,7 +37,7 @@ const Link = styled(NavLink)`
 
 export default () => (
   <Nav>
-    <Menu title="football" hasSubmenu>
+    <Menu title="football">
       <Link to="/football/shoes">shoes</Link>
       <Link to="/football/clothing">
         clothing
@@ -46,7 +46,7 @@ export default () => (
         accesories
       </Link>
     </Menu>
-    <Menu title="running" hasSubmenu>
+    <Menu title="running">
       <Link to="/running/shoes">shoes</Link>
       <Link to="/running/clothing">
         clothing
@@ -55,7 +55,7 @@ export default () => (
         accesories
       </Link>
     </Menu>
-    <Menu title="basketball" hasSubmenu>
+    <Menu title="basketball">
       <Link to="/basketball/shoes">shoes</Link>
       <Link to="/basketball/clothing">
         clothing
@@ -64,7 +64,5 @@ export default () => (
         accesories
       </Link>
     </Menu>
-    <Menu title="brands" />
-    <Menu title="micoach" />
   </Nav>
 );

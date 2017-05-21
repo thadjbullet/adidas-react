@@ -15,25 +15,23 @@ const Title = styled.div`
     color: #fff;
   }
 
-  ${props => props.hasSubmenu && `
   &:after {
     align-self: center;
     content: '';
     display: flex;
     width: 6px;
     height: 6px;
-    border: 3px solid ${props.isOpen ? '#fff' : '#3c3c3c'};
+    border: 3px solid ${props => (props.isOpen ? '#fff' : '#3c3c3c')};
     border-left: none;
     border-top: none;
     border-radius: 3px;
-    transform: ${props.isOpen ? 'rotate(45deg)' : 'rotate(225deg)'};
+    transform: ${props => (props.isOpen ? 'rotate(45deg)' : 'rotate(225deg)')};
     margin-left: 12px;
     transition-duration: 0.3s;
   }
     &:hover:after {
       border-color: #fff;
     }
-`}
 `;
 
 const Wrapper = styled.div`
