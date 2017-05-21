@@ -28,10 +28,11 @@ const Title = styled.div`
     transform: ${props => (props.isOpen ? 'rotate(45deg)' : 'rotate(225deg)')};
     margin-left: 12px;
     transition-duration: 0.3s;
-  }
-    &:hover:after {
-      border-color: #fff;
+
+    &:hover {
+      border: #fff;
     }
+  }
 `;
 
 const Wrapper = styled.div`
@@ -42,10 +43,10 @@ export default class Menu extends React.Component {
   constructor(props) {
     super(props);
     this.state = { isOpen: false };
-    this.handleOnClick = this.handleOnClick.bind(this);
+    this.handleClick = this.handleClick.bind(this);
   }
 
-  handleOnClick(e) {
+  handleClick(e) {
     e.preventDefault();
     this.setState({
       isOpen: !this.state.isOpen,
@@ -56,14 +57,14 @@ export default class Menu extends React.Component {
     return (
       <div>
         <Title
-          onClick={this.handleOnClick}
+          onClick={this.handleClick}
           hasSubmenu={this.props.hasSubmenu}
           isOpen={this.state.isOpen}
         >
           {this.props.title}
         </Title>
         <Wrapper isOpen={this.state.isOpen}>
-          {this.props.children}
+          {this.state.isOpen && this.props.children}
         </Wrapper>
       </div>
     );
