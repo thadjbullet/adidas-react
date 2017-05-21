@@ -35,10 +35,6 @@ const Title = styled.div`
   }
 `;
 
-const Wrapper = styled.div`
-  display: ${props => (props.isOpen ? 'block' : 'none')};
-`;
-
 export default class Menu extends React.Component {
   constructor(props) {
     super(props);
@@ -63,9 +59,7 @@ export default class Menu extends React.Component {
         >
           {this.props.title}
         </Title>
-        <Wrapper isOpen={this.state.isOpen}>
-          {this.state.isOpen && this.props.children}
-        </Wrapper>
+        {this.state.isOpen && this.props.children}
       </div>
     );
   }
