@@ -27,19 +27,19 @@ const Cost = styled.h2`
   font-family: 'AvenirBold';
   padding: 10px 0;
   margin: 20px 0;
-  color: #e2e2e2;
+  color: ${props => props.color};
   font-weight: 400;
 `;
 
-export default () => (
+export default props => (
   <Container>
     <ColorFilter>
-      <Button color="#c5c5c5" />
-      <Button color="#4d87ca" />
-      <Button color="#4a4a4a" />
-      <Button color="#e0e0e0" />
-      <SaleLabel>Sale</SaleLabel>
+      <Button color="#c5c5c5" changeColor={props.changeColor} />
+      <Button color="#4d87ca" changeColor={props.changeColor} />
+      <Button color="#4a4a4a" changeColor={props.changeColor} />
+      <Button color="#e0e0e0" changeColor={props.changeColor} />
+      <SaleLabel color={props.color}>Sale</SaleLabel>
     </ColorFilter>
-    <Cost>170$</Cost>
+    <Cost color={props.color}>170$</Cost>
   </Container>
 );
