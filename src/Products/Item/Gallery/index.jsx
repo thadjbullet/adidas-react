@@ -21,60 +21,6 @@ const Gallery = styled.div`
   justify-content: space-between;
 `;
 
-const LineContainer = styled.div`
-  align-items: center;
-  display: flex;
-  flex: 0 0 160px;
-  justify-content: center;
-  height: 120px;
-  margin: 0 14px;
-`;
-
-const Lines = styled.i`
-  width: 100%;
-  background: #e7e7e7;
-  height: 3px;
-  position: relative;
-
-  &:before {
-    content: '';
-    display: block;
-    position: relative;
-    width: 100%;
-    background: #e7e7e7;
-    height: 3px;
-    transition: inherit;
-    top: -6px;
-  }
-
-  &:after {
-    content: '';
-    display: block;
-    position: relative;
-    width: 100%;
-    background: #e7e7e7;
-    height: 3px;
-    transition: inherit;
-    top: 3px;
-  }
-`;
-
-const MoreImagesButton = styled.button`
-  border: none;
-  background: none;
-  font-family: 'Avenir';
-  color: #c0c0c0;
-  font-size: 14px;
-  text-align: left;
-  cursor: pointer;
-  width: 64px;
-  flex: 0 1 40px;
-
-  &:hover {
-    transform: scale(1.2);
-  }
-`;
-
 const About = styled.p`
   font-family: 'Avenir';
   font-weight: 800;
@@ -90,26 +36,65 @@ const CompanyName = styled.span`
   color: #6e6e6e;
 `;
 
-export default () => (
-  <div>
-    <Container>
-      <BigImage src={require('./shoes@3x.png')} />
-    </Container>
-    <Gallery>
-      <Image source={require('./shoe1.png')} />
-      <Image source={require('./shoe2.png')} />
-      <Image source={require('./shoe3@3x.png')} />
-      <Image source={require('./shoe4.png')} sel="active" />
-      <LineContainer>
-        <Lines />
-      </LineContainer>
-      <MoreImagesButton>see more photos</MoreImagesButton>
-    </Gallery>
-    <About>
-      <CompanyName>Adidas</CompanyName>
-      {' '}
-      is a German multinational corporation, headquartered in Herzogenaurach,
-      Germany, that designs and manufactures shoes, clothing and accessories.
-    </About>
-  </div>
-);
+export default class GalleryItem extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { id: 1, image: require('./shoes@3x.png') };
+    this.changeImage = this.changeImage.bind(this);
+  }
+
+  changeImage(num, url) {
+    this.setState({
+      id: num,
+      image: url,
+    });
+  }
+
+  render() {
+    return (
+      <div>
+        <Container>
+          <BigImage src={this.state.image} />
+        </Container>
+        <Gallery>
+          <Image
+            source={require('./shoe1.png')}
+            id={1}
+            activeId={this.state.id}
+            changeImage={this.changeImage}
+          />
+          <Image
+            source={require('./shoe2.png')}
+            id={2}
+            activeId={this.state.id}
+            changeImage={this.changeImage}
+          />
+          <Image
+            source={require('./shoe3@3x.png')}
+            id={3}
+            activeId={this.state.id}
+            changeImage={this.changeImage}
+          />
+          <Image
+            source={require('./shoe4.png')}
+            id={4}
+            activeId={this.state.id}
+            changeImage={this.changeImage}
+          />
+          <Image
+            source={require('./shoe3@3x.png')}
+            id={5}
+            activeId={this.state.id}
+            changeImage={this.changeImage}
+          />
+        </Gallery>
+        <About>
+          <CompanyName>Adidas</CompanyName>
+          {' '}
+          is a German multinational corporation, headquartered in Herzogenaurach,
+          Germany, that designs and manufactures shoes, clothing and accessories.
+        </About>
+      </div>
+    );
+  }
+}
