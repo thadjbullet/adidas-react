@@ -1,5 +1,8 @@
 {
-  "extends": "airbnb",
+  "extends": [
+    "airbnb",
+    "airbnb-flow"
+  ],
   "env": {
     "browser": true,
     "jest": true

@@ -1,4 +1,5 @@
 /* eslint-disable global-require */
+/* @flow */
 
 import React from 'react';
 import styled from 'styled-components';
@@ -12,6 +13,8 @@ const Container = styled.div`
 const BigImage = styled.img`
   display: block;
   margin: 0 auto;
+  width: 80%;
+  height: 80%;
 `;
 
 const Gallery = styled.div`
@@ -37,24 +40,43 @@ const CompanyName = styled.span`
 `;
 
 export default class GalleryItem extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { id: 1, image: require('./shoes@3x.png') };
+  static chooseImage(id: number) {
+    switch (id) {
+      case 1:
+        return require('./shoe1.png');
+      case 2:
+        return require('./shoe2.png');
+      case 3:
+        return require('./shoe3.png');
+      case 4:
+        return require('./shoe4.png');
+      case 5:
+        return require('./shoe5.png');
+      default:
+        return require('./shoe1.png');
+    }
+  }
+
+  constructor() {
+    super();
+    this.state = { id: 1 };
     this.changeImage = this.changeImage.bind(this);
   }
 
-  changeImage(num, url) {
+  state: { id: number };
+
+  changeImage(num: number) {
     this.setState({
       id: num,
-      image: url,
     });
   }
 
   render() {
+    const bigImage = GalleryItem.chooseImage(this.state.id);
     return (
       <div>
         <Container>
-          <BigImage src={this.state.image} />
+          <BigImage src={bigImage} />
         </Container>
         <Gallery>
           <Image
