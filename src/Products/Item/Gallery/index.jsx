@@ -1,5 +1,4 @@
 /* eslint-disable global-require */
-/* @flow */
 
 import React from 'react';
 import styled from 'styled-components';
@@ -40,7 +39,7 @@ const CompanyName = styled.span`
 `;
 
 export default class GalleryItem extends React.Component {
-  static chooseImage(id: number) {
+  static chooseImage(id) {
     switch (id) {
       case 1:
         return require('./shoe1.png');
@@ -63,9 +62,7 @@ export default class GalleryItem extends React.Component {
     this.changeImage = this.changeImage.bind(this);
   }
 
-  state: { id: number };
-
-  changeImage(num: number) {
+  changeImage(num) {
     this.setState({
       id: num,
     });
