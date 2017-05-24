@@ -37,7 +37,7 @@ const CompanyName = styled.span`
   color: #6e6e6e;
 `;
 
-const Images = [
+const images = [
   require('./shoe1.png'),
   require('./shoe2.png'),
   require('./shoe3.png'),
@@ -48,13 +48,13 @@ const Images = [
 export default class GalleryItem extends React.Component {
   constructor() {
     super();
-    this.state = { id: 0 };
+    this.state = { index: 0 };
     this.changeImage = this.changeImage.bind(this);
   }
 
-  changeImage(num) {
+  changeImage(id) {
     this.setState({
-      id: num,
+      index: id,
     });
   }
 
@@ -62,39 +62,16 @@ export default class GalleryItem extends React.Component {
     return (
       <div>
         <Container>
-          <BigImage src={Images[this.state.id]} />
+          <BigImage src={images[this.state.index]} />
         </Container>
         <Gallery>
-          <Image
-            source={require('./shoe1.png')}
-            id={0}
-            activeId={this.state.id}
-            changeImage={this.changeImage}
-          />
-          <Image
-            source={require('./shoe2.png')}
-            id={1}
-            activeId={this.state.id}
-            changeImage={this.changeImage}
-          />
-          <Image
-            source={require('./shoe3.png')}
-            id={2}
-            activeId={this.state.id}
-            changeImage={this.changeImage}
-          />
-          <Image
-            source={require('./shoe4.png')}
-            id={3}
-            activeId={this.state.id}
-            changeImage={this.changeImage}
-          />
-          <Image
-            source={require('./shoe5.png')}
-            id={4}
-            activeId={this.state.id}
-            changeImage={this.changeImage}
-          />
+          {images.map((item, index) => (
+            <Image
+              source={item}
+              isSelected={this.state.index === index}
+              changeImage={() => this.changeImage(index)}
+            />
+          ))}
         </Gallery>
         <About>
           <CompanyName>Adidas</CompanyName>
