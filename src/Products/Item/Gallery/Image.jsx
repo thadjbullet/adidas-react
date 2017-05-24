@@ -14,24 +14,11 @@ const Image = styled.img`
   }
 `;
 
-export default class GalleruImage extends React.Component {
-  constructor(props) {
-    super(props);
-    this.handleClick = this.handleClick.bind(this);
-  }
-
-  handleClick() {
-    this.props.changeImage(this.props.id, this.props.source);
-  }
-
-  render() {
-    return (
-      <Image
-        src={this.props.source}
-        activeId={this.props.activeId}
-        id={this.props.id}
-        onClick={this.handleClick}
-      />
-    );
-  }
-}
+export default props => (
+  <Image
+    src={props.source}
+    activeId={props.activeId}
+    id={props.id}
+    onClick={() => props.changeImage(props.id)}
+  />
+);

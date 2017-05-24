@@ -12,8 +12,7 @@ const Container = styled.div`
 const BigImage = styled.img`
   display: block;
   margin: 0 auto;
-  width: 80%;
-  height: 80%;
+  max-height: 600px;
 `;
 
 const Gallery = styled.div`
@@ -38,27 +37,18 @@ const CompanyName = styled.span`
   color: #6e6e6e;
 `;
 
-export default class GalleryItem extends React.Component {
-  static chooseImage(id) {
-    switch (id) {
-      case 1:
-        return require('./shoe1.png');
-      case 2:
-        return require('./shoe2.png');
-      case 3:
-        return require('./shoe3.png');
-      case 4:
-        return require('./shoe4.png');
-      case 5:
-        return require('./shoe5.png');
-      default:
-        return require('./shoe1.png');
-    }
-  }
+const Images = [
+  require('./shoe1.png'),
+  require('./shoe2.png'),
+  require('./shoe3.png'),
+  require('./shoe4.png'),
+  require('./shoe5.png'),
+];
 
+export default class GalleryItem extends React.Component {
   constructor() {
     super();
-    this.state = { id: 1 };
+    this.state = { id: 0 };
     this.changeImage = this.changeImage.bind(this);
   }
 
@@ -69,40 +59,39 @@ export default class GalleryItem extends React.Component {
   }
 
   render() {
-    const bigImage = GalleryItem.chooseImage(this.state.id);
     return (
       <div>
         <Container>
-          <BigImage src={bigImage} />
+          <BigImage src={Images[this.state.id]} />
         </Container>
         <Gallery>
           <Image
             source={require('./shoe1.png')}
-            id={1}
+            id={0}
             activeId={this.state.id}
             changeImage={this.changeImage}
           />
           <Image
             source={require('./shoe2.png')}
+            id={1}
+            activeId={this.state.id}
+            changeImage={this.changeImage}
+          />
+          <Image
+            source={require('./shoe3.png')}
             id={2}
             activeId={this.state.id}
             changeImage={this.changeImage}
           />
           <Image
-            source={require('./shoe3@3x.png')}
+            source={require('./shoe4.png')}
             id={3}
             activeId={this.state.id}
             changeImage={this.changeImage}
           />
           <Image
-            source={require('./shoe4.png')}
+            source={require('./shoe5.png')}
             id={4}
-            activeId={this.state.id}
-            changeImage={this.changeImage}
-          />
-          <Image
-            source={require('./shoe3@3x.png')}
-            id={5}
             activeId={this.state.id}
             changeImage={this.changeImage}
           />

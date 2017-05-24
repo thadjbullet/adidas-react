@@ -26,9 +26,9 @@ export default class Page extends React.Component {
     this.changeColor = this.changeColor.bind(this);
   }
 
-  changeColor(newColor) {
+  changeColor(Color) {
     this.setState({
-      color: newColor,
+      color: Color,
     });
   }
 
