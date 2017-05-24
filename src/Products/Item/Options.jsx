@@ -34,10 +34,10 @@ const Cost = styled.h2`
 export default props => (
   <Container>
     <ColorFilter>
-      <Button color="#c5c5c5" changeColor={props.changeColor} />
-      <Button color="#4d87ca" changeColor={props.changeColor} />
-      <Button color="#4a4a4a" changeColor={props.changeColor} />
-      <Button color="#e0e0e0" changeColor={props.changeColor} />
+      <Button color="#c5c5c5" onChangeColor={props.onChangeColor} />
+      <Button color="#4d87ca" onChangeColor={props.onChangeColor} />
+      <Button color="#4a4a4a" onChangeColor={props.onChangeColor} />
+      <Button color="#e0e0e0" onChangeColor={props.onChangeColor} />
       <SaleLabel color={props.color}>Sale</SaleLabel>
     </ColorFilter>
     <Cost color={props.color}>170$</Cost>

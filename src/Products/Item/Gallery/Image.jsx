@@ -16,8 +16,8 @@ const Image = styled.img`
 
 export default props => (
   <Image
-    src={props.source}
+    src={props.src}
     isSelected={props.isSelected}
-    onClick={props.changeImage}
+    onClick={props.onChangeImage}
   />
 );

@@ -17,5 +17,8 @@ const Button = styled.button`
 `;
 
 export default props => (
-  <Button color={props.color} onClick={() => props.changeColor(props.color)} />
+  <Button
+    color={props.color}
+    onClick={() => props.onChangeColor(props.color)}
+  />
 );

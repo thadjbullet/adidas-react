@@ -23,10 +23,10 @@ export default class Page extends React.Component {
   constructor(props) {
     super(props);
     this.state = { color: '#c5c5c5' };
-    this.changeColor = this.changeColor.bind(this);
+    this.handleChangeColor = this.handleChangeColor.bind(this);
   }
 
-  changeColor(color) {
+  handleChangeColor(color) {
     this.setState({
       color,
     });
@@ -37,8 +37,11 @@ export default class Page extends React.Component {
       <Main>
         <Item>
           <Container>
-            <Title changeColor={this.changeColor} color={this.state.color} />
-            <Options changeColor={this.changeColor} color={this.state.color} />
+            <Title color={this.state.color} />
+            <Options
+              onChangeColor={this.handleChangeColor}
+              color={this.state.color}
+            />
             <Gallery />
           </Container>
         </Item>

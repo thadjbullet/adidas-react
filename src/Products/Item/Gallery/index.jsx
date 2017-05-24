@@ -48,12 +48,12 @@ const images = [
 export default class GalleryItem extends React.Component {
   constructor() {
     super();
-    this.state = { index: 0 };
+    this.state = { selectedIndex: 0 };
   }
 
-  changeImage(id) {
+  handleChangeImage(selectedIndex) {
     this.setState({
-      index: id,
+      selectedIndex,
     });
   }
 
@@ -61,14 +61,14 @@ export default class GalleryItem extends React.Component {
     return (
       <div>
         <Container>
-          <BigImage src={images[this.state.index]} />
+          <BigImage src={images[this.state.selectedIndex]} />
         </Container>
         <Gallery>
-          {images.map((item, index) => (
+          {images.map((image, index) => (
             <Image
-              source={item}
-              isSelected={this.state.index === index}
-              changeImage={() => this.changeImage(index)}
+              src={image}
+              isSelected={this.state.selectedIndex === index}
+              onChangeImage={() => this.handleChangeImage(index)}
             />
           ))}
         </Gallery>
