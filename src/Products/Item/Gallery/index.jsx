@@ -49,7 +49,6 @@ export default class GalleryItem extends React.Component {
   constructor() {
     super();
     this.state = { index: 0 };
-    this.changeImage = this.changeImage.bind(this);
   }
 
   changeImage(id) {
