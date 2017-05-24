@@ -1,5 +1,3 @@
-/* eslint-disable react/prop-types */
-
 import React from 'react';
 import styled from 'styled-components';
 
@@ -18,4 +16,9 @@ const Button = styled.button`
   }
 `;
 
-export default props => <Button color={props.color} />;
+export default props => (
+  <Button
+    color={props.color}
+    onClick={() => props.onChangeColor(props.color)}
+  />
+);

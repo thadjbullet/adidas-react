@@ -24,6 +24,7 @@ const Title = styled.h1`
 
 const SaveButton = styled.button`
   justify-content: center;
+  background: ${props => props.color};
   align-items: center;
   font-size: 18px;
   text-transform: uppercase;
@@ -38,16 +39,15 @@ const SaveButton = styled.button`
   text-align: center;
 
   &:hover {
-    background: #4d42f8;
     transform: scale(1.2);
   }
 `;
 
-export default () => (
+export default props => (
   <Header>
     <Container>
       <Title>Ultra<br />Boost</Title>
-      <SaveButton>Save</SaveButton>
+      <SaveButton color={props.color}>Save</SaveButton>
     </Container>
   </Header>
 );

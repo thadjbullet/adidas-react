@@ -19,15 +19,34 @@ const Container = styled.div`
   padding: 15px 31px 31px;
 `;
 
-export default () => (
-  <Main>
-    <Item>
-      <Container>
-        <Title />
-        <Options />
-        <Gallery />
-      </Container>
-    </Item>
-    <BuyButton>Buy Now</BuyButton>
-  </Main>
-);
+export default class Page extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { color: '#c5c5c5' };
+    this.handleChangeColor = this.handleChangeColor.bind(this);
+  }
+
+  handleChangeColor(color) {
+    this.setState({
+      color,
+    });
+  }
+
+  render() {
+    return (
+      <Main>
+        <Item>
+          <Container>
+            <Title color={this.state.color} />
+            <Options
+              onChangeColor={this.handleChangeColor}
+              color={this.state.color}
+            />
+            <Gallery />
+          </Container>
+        </Item>
+        <BuyButton>Buy Now</BuyButton>
+      </Main>
+    );
+  }
+}

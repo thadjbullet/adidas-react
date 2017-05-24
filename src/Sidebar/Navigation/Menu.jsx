@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 const Title = styled.div`
-  color: ${props => (props.isOpen ? '#fff' : '#3c3c3c')};
+  color: #fff;
   cursor: pointer;
   display: flex;
   font-family: 'AvenirBold';
@@ -21,7 +21,7 @@ const Title = styled.div`
     display: flex;
     width: 6px;
     height: 6px;
-    border: 3px solid ${props => (props.isOpen ? '#fff' : '#3c3c3c')};
+    border: 3px solid #fff;
     border-left: none;
     border-top: none;
     border-radius: 3px;
