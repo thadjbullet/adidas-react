@@ -30,14 +30,14 @@ const Container = styled.div`
 export default class Sidebar extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { isMenuOpen: false };
-    this.handleOnClick = this.handleOnClick.bind(this);
+    this.state = { isMenuOpened: false };
+    this.toggleOnClick = this.toggleOnClick.bind(this);
   }
 
-  handleOnClick() {
-    this.setState({
-      isMenuOpen: !this.state.isMenuOpen,
-    });
+  toggleOnClick() {
+    this.setState(state => ({
+      isMenuOpened: !state.isMenuOpened,
+    }));
   }
 
   render() {
@@ -45,11 +45,11 @@ export default class Sidebar extends React.Component {
       <Aside>
         <Container>
           <Logo
-            handleOpenMenu={this.handleOnClick}
-            isMenuOpen={this.state.isMenuOpen}
+            toggleOpenMenu={this.toggleOnClick}
+            isMenuOpened={this.state.isMenuOpened}
           />
           <Search />
-          <Nav isMenuOpen={this.state.isMenuOpen} />
+          <Nav isMenuOpened={this.state.isMenuOpened} />
         </Container>
       </Aside>
     );
