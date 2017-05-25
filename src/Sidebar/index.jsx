@@ -31,10 +31,10 @@ export default class Sidebar extends React.Component {
   constructor(props) {
     super(props);
     this.state = { isMenuOpened: false };
-    this.toggleOnClick = this.toggleOnClick.bind(this);
+    this.handleClick = this.handleClick.bind(this);
   }
 
-  toggleOnClick() {
+  handleClick() {
     this.setState(state => ({
       isMenuOpened: !state.isMenuOpened,
     }));
@@ -45,7 +45,7 @@ export default class Sidebar extends React.Component {
       <Aside>
         <Container>
           <Logo
-            toggleMenu={this.toggleOnClick}
+            toggleMenu={this.handleClick}
             isMenuOpened={this.state.isMenuOpened}
           />
           <Search />
