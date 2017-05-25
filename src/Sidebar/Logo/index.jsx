@@ -5,9 +5,8 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 import meida from '../../media';
-
-const hamburgerIcon = require('./hamburger.svg');
-const closeIcon = require('./close.svg');
+import hamburgerIcon from './hamburger.svg';
+import closeIcon from './close.svg';
 
 const Logo = styled.div`
   display: flex;
@@ -68,7 +67,7 @@ export default props => (
       <Img src={require('./logo.svg')} />
     </LogoLink>
     <HamburgerButton
-      onClick={props.toggleOpenMenu}
+      onClick={props.toggleMenu}
       isMenuOpened={props.isMenuOpened}
     />
   </Logo>
