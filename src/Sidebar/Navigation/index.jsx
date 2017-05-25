@@ -6,7 +6,9 @@ import media from '../../media';
 import Menu from './Menu';
 
 const Nav = styled.nav`
-  display: none;
+  display: ${props => (props.isMenuOpened ? 'flex' : 'none')};
+  flex-direction: column;
+  font-size: 24px;
 
   ${media.xs('min')`
     display: block;
@@ -35,8 +37,8 @@ const Link = styled(NavLink)`
   }
 `;
 
-export default () => (
-  <Nav>
+export default props => (
+  <Nav isMenuOpened={props.isMenuOpened}>
     <Menu title="football">
       <Link to="/football/shoes">shoes</Link>
       <Link to="/football/clothing">

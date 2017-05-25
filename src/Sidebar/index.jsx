@@ -6,9 +6,10 @@ import Search from './Search';
 import Nav from './Navigation';
 import media from '../media';
 
-const Sidebar = styled.aside`
+const Aside = styled.aside`
   background: #0e0e0e;
   display: flex;
+  justify-content: flex-start;
   min-height: 64px;
   max-width: 100%;
   padding: 0 22px;
@@ -26,12 +27,31 @@ const Container = styled.div`
   width: 100%;
 `;
 
-export default () => (
-  <Sidebar>
-    <Container>
-      <Logo />
-      <Search />
-      <Nav />
-    </Container>
-  </Sidebar>
-);
+export default class Sidebar extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { isMenuOpened: false };
+    this.handleClick = this.handleClick.bind(this);
+  }
+
+  handleClick() {
+    this.setState(state => ({
+      isMenuOpened: !state.isMenuOpened,
+    }));
+  }
+
+  render() {
+    return (
+      <Aside>
+        <Container>
+          <Logo
+            handleClick={this.handleClick}
+            isMenuOpened={this.state.isMenuOpened}
+          />
+          <Search />
+          <Nav isMenuOpened={this.state.isMenuOpened} />
+        </Container>
+      </Aside>
+    );
+  }
+}
