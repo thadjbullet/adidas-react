@@ -67,7 +67,7 @@ export default props => (
       <Img src={require('./logo.svg')} />
     </LogoLink>
     <HamburgerButton
-      onClick={props.toggleMenu}
+      onClick={props.handleClick}
       isMenuOpened={props.isMenuOpened}
     />
   </Logo>

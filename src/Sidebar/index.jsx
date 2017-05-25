@@ -45,7 +45,7 @@ export default class Sidebar extends React.Component {
       <Aside>
         <Container>
           <Logo
-            toggleMenu={this.handleClick}
+            handleClick={this.handleClick}
             isMenuOpened={this.state.isMenuOpened}
           />
           <Search />
