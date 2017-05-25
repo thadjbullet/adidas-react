@@ -13,8 +13,9 @@ const Logo = styled.div`
 
   ${meida.xs('max')`
     display: flex;
-    justify-content: start;
-    height: 100%;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 17px 0;
     margin: 0;
   `}
 `;
@@ -38,10 +39,30 @@ const LogoLink = styled(Link)`
   align-self: center;
 `;
 
-export default () => (
+const HamburgerIcon = styled.img`
+  display: none;
+  ${meida.xs('max')`
+    align-self: center;
+    cursor: pointer;
+    display: block;
+    max-height: 30px;
+
+    &:hover {
+      color: #4d42f8;
+    }
+  `}
+`;
+
+export default props => (
   <Logo>
     <LogoLink to="/">
       <Img src={require('./logo.svg')} />
     </LogoLink>
+    <HamburgerIcon
+      onClick={props.handleOpenMenu}
+      src={
+        props.isMenuOpen ? require('./close.svg') : require('./hamburger.svg')
+      }
+    />
   </Logo>
 );
