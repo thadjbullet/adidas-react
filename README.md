@@ -13,5 +13,3 @@ Build
 
 Lint check
 `yarn lint`
-
-[Link to Surge.sh](http://adidas-shop-kos.now.sh) - adidas-shop-kos.now.sh
