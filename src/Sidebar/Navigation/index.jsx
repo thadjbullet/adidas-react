@@ -40,29 +40,29 @@ const Link = styled(NavLink)`
 export default props => (
   <Nav isMenuOpened={props.isMenuOpened}>
     <Menu title="football">
-      <Link to="/football/shoes">shoes</Link>
-      <Link to="/football/clothing">
+      <Link to="/products/:football/:shoes">shoes</Link>
+      <Link to="/products/:football/:clothing">
         clothing
       </Link>
-      <Link to="/football/accesories">
+      <Link to="/products/:football/:accesories">
         accesories
       </Link>
     </Menu>
     <Menu title="running">
-      <Link to="/running/shoes">shoes</Link>
-      <Link to="/running/clothing">
+      <Link to="/products/:running/:shoes">shoes</Link>
+      <Link to="/products/:running/:clothing">
         clothing
       </Link>
-      <Link to="/running/accesories">
+      <Link to="/products/:running/:accesories">
         accesories
       </Link>
     </Menu>
     <Menu title="basketball">
-      <Link to="/basketball/shoes">shoes</Link>
-      <Link to="/basketball/clothing">
+      <Link to="/products/:basketball/:shoes">shoes</Link>
+      <Link to="/products/:basketball/:clothing">
         clothing
       </Link>
-      <Link to="/basketball/accesories">
+      <Link to="/products/:basketball/:accesories">
         accesories
       </Link>
     </Menu>
