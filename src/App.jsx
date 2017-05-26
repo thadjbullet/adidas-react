@@ -24,7 +24,13 @@ export default () => (
     <View>
       <Sidebar />
       <Route exact path="/" component={ProductList} />
-      <Route path="/products" component={ProductItem} />
+      <Route path="/item" component={ProductList} />
+      <Route
+        exact
+        path="/products/:category/:section"
+        component={ProductList}
+      />
+      <Route exact path="/products/:id" component={ProductItem} />
     </View>
   </Router>
 );

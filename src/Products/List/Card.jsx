@@ -48,7 +48,7 @@ const SaleLabel = styled(Label)`
 export default props => (
   <Card>
     <Img src={props.image} />
-    <Link to="/products" sale={props.sale}>{props.cost}</Link>
+    <Link to="/products/:id" sale={props.sale}>{props.cost}</Link>
     {props.sale && <SaleLabel>Sale</SaleLabel>}
   </Card>
 );
