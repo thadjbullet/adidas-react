@@ -14,4 +14,4 @@ Build
 Lint check
 `yarn lint`
 
-[Link to Surge.sh](http://repulsive-street.surge.sh) - repulsive-street.surge.sh
+[Link to Surge.sh](http://adidas-shop-kos.now.sh) - adidas-shop-kos.now.sh
