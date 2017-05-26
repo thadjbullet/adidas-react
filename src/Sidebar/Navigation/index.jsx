@@ -41,40 +41,44 @@ const Link = styled(NavLink)`
   }
 `;
 
+const LinkWithActive = ({ to, children }) => (
+  <Link to={to} activeClassName="active">{children}</Link>
+);
+
 export default props => (
   <Nav isMenuOpened={props.isMenuOpened}>
     <Menu title="football">
-      <Link to="/products/football/shoes" activeClassName="active">
+      <LinkWithActive to="/products/football/shoes">
         shoes
-      </Link>
-      <Link to="/products/football/clothing" activeClassName="active">
+      </LinkWithActive>
+      <LinkWithActive to="/products/football/clothing">
         clothing
-      </Link>
-      <Link to="/products/football/accesories" activeClassName="active">
+      </LinkWithActive>
+      <LinkWithActive to="/products/football/accesories">
         accesories
-      </Link>
+      </LinkWithActive>
     </Menu>
     <Menu title="running">
-      <Link to="/products/running/shoes" activeClassName="active">
+      <LinkWithActive to="/products/running/shoes">
         shoes
-      </Link>
-      <Link to="/products/running/clothing" activeClassName="active">
+      </LinkWithActive>
+      <LinkWithActive to="/products/running/clothing">
         clothing
-      </Link>
-      <Link to="/products/running/accesories" activeClassName="active">
+      </LinkWithActive>
+      <LinkWithActive to="/products/running/accesories">
         accesories
-      </Link>
+      </LinkWithActive>
     </Menu>
     <Menu title="basketball">
-      <Link to="/products/basketball/shoes" activeClassName="active">
+      <LinkWithActive to="/products/basketball/shoes">
         shoes
-      </Link>
-      <Link to="/products/basketball/clothing" activeClassName="active">
+      </LinkWithActive>
+      <LinkWithActive to="/products/basketball/clothing">
         clothing
-      </Link>
-      <Link to="/products/basketball/accesories" activeClassName="active">
+      </LinkWithActive>
+      <LinkWithActive to="/products/basketball/accesories">
         accesories
-      </Link>
+      </LinkWithActive>
     </Menu>
   </Nav>
 );
