@@ -43,9 +43,9 @@ export default class Menu extends React.Component {
   }
 
   handleClick() {
-    this.setState({
-      isOpen: !this.state.isOpen,
-    });
+    this.setState(state => ({
+      isOpen: !state.isOpen,
+    }));
   }
 
   render() {

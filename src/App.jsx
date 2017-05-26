@@ -2,7 +2,12 @@
 
 import React from 'react';
 import styled from 'styled-components';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import {
+  BrowserRouter as Router,
+  Route,
+  Redirect,
+  Switch,
+} from 'react-router-dom';
 
 import Sidebar from './Sidebar';
 import media from './media';
@@ -23,8 +28,15 @@ export default () => (
   <Router>
     <View>
       <Sidebar />
-      <Route exact path="/" component={ProductList} />
-      <Route path="/item" component={ProductItem} />
+      <Switch>
+        <Redirect exact from="/" to="/products/football/shoes" />
+        <Route
+          exact
+          path="/products/:category/:section"
+          component={ProductList}
+        />
+        <Route exact path="/products/:id" component={ProductItem} />
+      </Switch>
     </View>
   </Router>
 );
