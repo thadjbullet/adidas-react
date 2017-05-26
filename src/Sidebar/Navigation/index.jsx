@@ -36,7 +36,7 @@ const Link = styled(NavLink)`
     color: #fff;
   }
 
-  &.${props => props.activeClassName} {
+  &.active {
     color: #fff;
   }
 `;
@@ -44,35 +44,35 @@ const Link = styled(NavLink)`
 export default props => (
   <Nav isMenuOpened={props.isMenuOpened}>
     <Menu title="football">
-      <Link to="/products/football/shoes" activeClassName>
+      <Link to="/products/football/shoes" activeClassName="active">
         shoes
       </Link>
-      <Link to="/products/football/clothing" activeClassName>
+      <Link to="/products/football/clothing" activeClassName="active">
         clothing
       </Link>
-      <Link to="/products/football/accesories" activeClassName>
+      <Link to="/products/football/accesories" activeClassName="active">
         accesories
       </Link>
     </Menu>
     <Menu title="running">
-      <Link to="/products/running/shoes" activeClassName>
+      <Link to="/products/running/shoes" activeClassName="active">
         shoes
       </Link>
-      <Link to="/products/running/clothing" activeClassName>
+      <Link to="/products/running/clothing" activeClassName="active">
         clothing
       </Link>
-      <Link to="/products/running/accesories" activeClassName>
+      <Link to="/products/running/accesories" activeClassName="active">
         accesories
       </Link>
     </Menu>
     <Menu title="basketball">
-      <Link to="/products/basketball/shoes" activeClassName>
+      <Link to="/products/basketball/shoes" activeClassName="active">
         shoes
       </Link>
-      <Link to="/products/basketball/clothing" activeClassName>
+      <Link to="/products/basketball/clothing" activeClassName="active">
         clothing
       </Link>
-      <Link to="/products/basketball/accesories" activeClassName>
+      <Link to="/products/basketball/accesories" activeClassName="active">
         accesories
       </Link>
     </Menu>
