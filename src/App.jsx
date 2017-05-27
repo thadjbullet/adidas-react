@@ -18,7 +18,7 @@ const View = styled.div`
   display: flex;
   flex-direction: row;
 
-  ${media.xs('max')`
+  ${media.sm('max')`
     display: flex;
     flex-direction: column;
   `}

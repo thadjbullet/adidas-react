@@ -12,7 +12,7 @@ const Nav = styled.nav`
   flex-direction: column;
   font-size: 24px;
 
-  ${media.xs('min')`
+  ${media.sm('min')`
     display: block;
     align-self: center;
     font-size: 24px;
