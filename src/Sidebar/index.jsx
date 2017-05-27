@@ -10,15 +10,16 @@ const Aside = styled.aside`
   background: #0e0e0e;
   display: flex;
   justify-content: flex-start;
-  min-height: 64px;
+  flex-basis: 33.333334%;
+  min-height: 100vh;
   max-width: 100%;
   padding: 0 22px;
+  max-width: 414px;
 
-  ${media.xs('min')`
-    flex-basis: 33.333334%;
+  ${media.sm('max')`
     justify-content: center;
-    min-height: 100vh;
-    max-width: 414px;
+    max-width: 100%;
+    min-height: 64px;
   `}
 `;
 const Container = styled.div`

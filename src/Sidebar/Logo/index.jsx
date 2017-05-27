@@ -13,7 +13,7 @@ const Logo = styled.div`
   justify-content: center;
   margin: 31px auto;
 
-  ${meida.xs('max')`
+  ${meida.sm('max')`
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -29,7 +29,7 @@ const Img = styled.img`
     transform: scale(1.1);
   }
 
-  ${meida.xs('max')`
+  ${meida.sm('max')`
     height: auto;
     display: block;
     max-width: 52px;
@@ -43,7 +43,7 @@ const LogoLink = styled(Link)`
 
 const HamburgerButton = styled.button`
   display: none;
-  ${meida.xs('max')`
+  ${meida.sm('max')`
     align-self: center;
     background-color: transparent;
     background-image: ${props => (props.isMenuOpened ? `url(${closeIcon})` : `url(${hamburgerIcon})`)};
@@ -53,6 +53,7 @@ const HamburgerButton = styled.button`
     display: block;
     height: 30px;
     max-height: 30px;
+    margin-right: 14px;
     width: 40px;
 
     &:hover {

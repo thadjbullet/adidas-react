@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import media from '../../media';
 
 import Title from './Title';
 import Options from './Options';
@@ -13,10 +14,21 @@ const Main = styled.main`
 
 const Item = styled.div`
   flex: 1;
+  padding: 0 30px;
 `;
 
 const Container = styled.div`
-  padding: 15px 31px 31px;
+  padding: 15px 0 31px;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  max-height: 0;
+
+  ${media.sm('max')`
+    flex-direction: column;
+    max-height: 100%;
+    padding: 30px 0 0;
+  `}
 `;
 
 export default class Page extends React.Component {
@@ -42,8 +54,8 @@ export default class Page extends React.Component {
               onChangeColor={this.handleChangeColor}
               color={this.state.color}
             />
-            <Gallery />
           </Container>
+          <Gallery />
         </Item>
         <BuyButton>Buy Now</BuyButton>
       </Main>

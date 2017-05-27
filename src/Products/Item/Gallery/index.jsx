@@ -12,7 +12,7 @@ const Container = styled.div`
 const BigImage = styled.img`
   display: block;
   margin: 0 auto;
-  max-height: 600px;
+  max-height: 500px;
 `;
 
 const Gallery = styled.div`
@@ -28,9 +28,8 @@ const About = styled.p`
   font-size: 33px;
   line-height: 1.52;
   color: #d8d8d8;
-  margin-bottom: 170px;
+  margin: 40px 0 170px;
   padding: 0;
-  margin-top: 32px;
 `;
 
 const CompanyName = styled.span`

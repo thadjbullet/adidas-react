@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import media from '../../media';
 
 export default styled.button`
   background-image: linear-gradient(to right, #4949aa, #27275d);
@@ -18,4 +19,8 @@ export default styled.button`
   &:hover {
     background-image: linear-gradient(to left, #4949aa, #27275d);
   }
+
+  ${media.sm('max')`
+    width: 100%;
+  `}
 `;

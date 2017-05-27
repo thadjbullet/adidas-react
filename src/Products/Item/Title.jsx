@@ -1,11 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
+import media from '../../media';
 
 const Header = styled.header`
-  align-items: flex-start;
-  justify-content: space-between;
-  max-height: 0;
-  position: relative;
+
 `;
 
 const Container = styled.div`
@@ -20,6 +18,14 @@ const Title = styled.h1`
   text-transform: uppercase;
   padding: 0;
   margin: 0;
+
+  ${media.sm('max')`
+    font-size: 36px;
+    
+    & > br {
+      display: none;
+    }
+  `}
 `;
 
 const SaveButton = styled.button`
@@ -41,12 +47,16 @@ const SaveButton = styled.button`
   &:hover {
     transform: scale(1.2);
   }
+
+  ${media.sm('max')`
+    display: none;
+  `}
 `;
 
 export default props => (
   <Header>
     <Container>
-      <Title>Ultra<br />Boost</Title>
+      <Title>Ultra <br />Boost</Title>
       <SaveButton color={props.color}>Save</SaveButton>
     </Container>
   </Header>

@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import media from '../../media';
 
 import Button from './ColorButton';
 import Label from '../../components/Label';
@@ -8,7 +9,12 @@ const Container = styled.div`
   align-items: flex-end;
   display: flex;
   flex-flow: column nowrap;
-  margin-top: 16px;
+  margin-top: 25px;
+
+  ${media.sm('max')`
+    flex-direction: column-reverse;
+    margin-top: 0;
+  `}
 `;
 
 const ColorFilter = styled.div`
@@ -16,10 +22,20 @@ const ColorFilter = styled.div`
   display: flex;
   flex-flow: row nowrap;
   justify-content: flex-end;
+
+  ${media.sm('max')`
+    width: 100%;
+    justify-content: space-between;
+    flex-direction: row-reverse;
+  `}
 `;
 
 const SaleLabel = styled(Label)`
   margin-left: 30px;
+
+  ${media.sm('max')`
+    margin: 0;
+  `}
 `;
 
 const Cost = styled.h2`
@@ -29,15 +45,26 @@ const Cost = styled.h2`
   margin: 20px 0;
   color: ${props => props.color};
   font-weight: 400;
+
+  ${media.sm('max')`
+    align-self: flex-start;
+    margin: 0;
+  `}
+`;
+
+const Wrapper = styled.div`
+
 `;
 
 export default props => (
   <Container>
     <ColorFilter>
-      <Button color="#c5c5c5" onChangeColor={props.onChangeColor} />
-      <Button color="#4d87ca" onChangeColor={props.onChangeColor} />
-      <Button color="#4a4a4a" onChangeColor={props.onChangeColor} />
-      <Button color="#e0e0e0" onChangeColor={props.onChangeColor} />
+      <Wrapper>
+        <Button color="#c5c5c5" onChangeColor={props.onChangeColor} />
+        <Button color="#4d87ca" onChangeColor={props.onChangeColor} />
+        <Button color="#4a4a4a" onChangeColor={props.onChangeColor} />
+        <Button color="#e0e0e0" onChangeColor={props.onChangeColor} />
+      </Wrapper>
       <SaleLabel color={props.color}>Sale</SaleLabel>
     </ColorFilter>
     <Cost color={props.color}>170$</Cost>

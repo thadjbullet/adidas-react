@@ -1,3 +1,5 @@
+/* eslint-disable no-bitwise */
+
 import React from 'react';
 import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
@@ -6,11 +8,12 @@ import media from '../../media';
 import Menu from './Menu';
 
 const Nav = styled.nav`
+  align-items: flex-start;
   display: ${props => (props.isMenuOpened ? 'flex' : 'none')};
   flex-direction: column;
   font-size: 24px;
 
-  ${media.xs('min')`
+  ${media.sm('min')`
     display: block;
     align-self: center;
     font-size: 24px;
@@ -39,6 +42,10 @@ const Link = styled(NavLink)`
   &.active {
     color: #fff;
   }
+
+  ${media.sm('max')`
+    margin-left: 30px;
+  `}
 `;
 
 const LinkWithActive = ({ to, children }) => (

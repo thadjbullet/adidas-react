@@ -8,7 +8,7 @@ import media from '../../media';
 const Form = styled.form`
   padding: 0;
 
-  ${media.xs('max')`
+  ${media.sm('max')`
   display: none;
   `}
 `;
