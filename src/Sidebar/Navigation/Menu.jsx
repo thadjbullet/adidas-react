@@ -54,12 +54,6 @@ class Menu extends React.Component {
     this.handleClick = this.handleClick.bind(this);
   }
 
-  componentWillMount() {
-    if (this.props.isExact) {
-      this.setState({ isOpen: true });
-    }
-  }
-
   handleClick() {
     this.setState(state => ({
       isOpen: !state.isOpen,
