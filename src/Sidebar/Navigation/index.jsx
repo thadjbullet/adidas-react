@@ -1,6 +1,8 @@
+/* eslint-disable no-bitwise */
+
 import React from 'react';
 import styled from 'styled-components';
-import { NavLink } from 'react-router-dom';
+import { NavLink, withRouter } from 'react-router-dom';
 
 import media from '../../media';
 import Menu from './Menu';
@@ -45,40 +47,60 @@ const LinkWithActive = ({ to, children }) => (
   <Link to={to} activeClassName="active">{children}</Link>
 );
 
-export default props => (
-  <Nav isMenuOpened={props.isMenuOpened}>
-    <Menu title="football">
-      <LinkWithActive to="/products/football/shoes">
-        shoes
-      </LinkWithActive>
-      <LinkWithActive to="/products/football/clothing">
-        clothing
-      </LinkWithActive>
-      <LinkWithActive to="/products/football/accesories">
-        accesories
-      </LinkWithActive>
-    </Menu>
-    <Menu title="running">
-      <LinkWithActive to="/products/running/shoes">
-        shoes
-      </LinkWithActive>
-      <LinkWithActive to="/products/running/clothing">
-        clothing
-      </LinkWithActive>
-      <LinkWithActive to="/products/running/accesories">
-        accesories
-      </LinkWithActive>
-    </Menu>
-    <Menu title="basketball">
-      <LinkWithActive to="/products/basketball/shoes">
-        shoes
-      </LinkWithActive>
-      <LinkWithActive to="/products/basketball/clothing">
-        clothing
-      </LinkWithActive>
-      <LinkWithActive to="/products/basketball/accesories">
-        accesories
-      </LinkWithActive>
-    </Menu>
-  </Nav>
-);
+class Navigation extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { url: '' };
+  }
+
+  componentWillMount() {
+    this.setState({
+      url: this.props.match.url,
+    });
+  }
+
+  render() {
+    return (
+      <Nav isMenuOpened={this.props.isMenuOpened}>
+        <Menu title="football" isExact={~this.state.url.indexOf('football')}>
+          <LinkWithActive to="/products/football/shoes">
+            shoes
+          </LinkWithActive>
+          <LinkWithActive to="/products/football/clothing">
+            clothing
+          </LinkWithActive>
+          <LinkWithActive to="/products/football/accesories">
+            accesories
+          </LinkWithActive>
+        </Menu>
+        <Menu title="running" isExact={~this.state.url.indexOf('running')}>
+          <LinkWithActive to="/products/running/shoes">
+            shoes
+          </LinkWithActive>
+          <LinkWithActive to="/products/running/clothing">
+            clothing
+          </LinkWithActive>
+          <LinkWithActive to="/products/running/accesories">
+            accesories
+          </LinkWithActive>
+        </Menu>
+        <Menu
+          title="basketball"
+          isExact={~this.state.url.indexOf('basketball')}
+        >
+          <LinkWithActive to="/products/basketball/shoes">
+            shoes
+          </LinkWithActive>
+          <LinkWithActive to="/products/basketball/clothing">
+            clothing
+          </LinkWithActive>
+          <LinkWithActive to="/products/basketball/accesories">
+            accesories
+          </LinkWithActive>
+        </Menu>
+      </Nav>
+    );
+  }
+}
+
+export default withRouter(Navigation);

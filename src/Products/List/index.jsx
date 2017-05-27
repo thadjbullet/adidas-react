@@ -22,22 +22,22 @@ export default () => (
     <Filter />
     <Content>
       <Row>
-        <Col xs={12} sm={6} ms={4} lg={4}>
-          <Card image={require('./shue-1.png')} cost="170$" sale />
+        <Col xs={12} sm={6} md={4} lg={4}>
+          <Card image={require('./shue-1.png')} cost="170$" isSale />
         </Col>
-        <Col xs={12} sm={6} ms={4} lg={4}>
+        <Col xs={12} sm={6} md={4} lg={4}>
           <Card image={require('./shoes.png')} cost="240.99$" />
         </Col>
-        <Col xs={12} sm={6} ms={4} lg={4}>
+        <Col xs={12} sm={6} md={4} lg={4}>
           <Card image={require('./shue-1.png')} cost="1024$" />
         </Col>
-        <Col xs={12} sm={6} ms={4} lg={4}>
+        <Col xs={12} sm={6} md={4} lg={4}>
           <Card image={require('./shue-1.png')} cost="170$" />
         </Col>
-        <Col xs={12} sm={6} ms={4} lg={4}>
-          <Card image={require('./shoes.png')} cost="170$" sale />
+        <Col xs={12} sm={6} md={4} lg={4}>
+          <Card image={require('./shoes.png')} cost="170$" isSale />
         </Col>
-        <Col xs={12} sm={6} ms={4} lg={4}>
+        <Col xs={12} sm={6} md={4} lg={4}>
           <Card image={require('./shue-1.png')} cost="170$" />
         </Col>
       </Row>

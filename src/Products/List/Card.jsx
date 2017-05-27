@@ -23,8 +23,8 @@ const Img = styled.img`
 
 const Link = styled(NavLink)`
   background: #fff;
-  background-image: ${props => (props.sale ? 'linear-gradient(107deg, #0c09bf, #966dd8)' : '')};
-  color: ${props => (props.sale ? '#fff' : '#111')};
+  background-image: ${props => (props.isSale ? 'linear-gradient(107deg, #0c09bf, #966dd8)' : '')};
+  color: ${props => (props.isSale ? '#fff' : '#111')};
   display: block;
   font-family: 'AvenirBold';
   font-size: 30px;
@@ -34,7 +34,7 @@ const Link = styled(NavLink)`
   width: 100%;
 
   &:hover {
-    background-image: ${props => (props.sale ? 'linear-gradient(180deg, #0c09bf, #966dd8)' : 'linear-gradient(107deg, #0c09bf, #966dd8)')};
+    background-image: ${props => (props.isSale ? 'linear-gradient(180deg, #0c09bf, #966dd8)' : 'linear-gradient(107deg, #0c09bf, #966dd8)')};
     color: #fff;
   }
 `;
@@ -48,7 +48,7 @@ const SaleLabel = styled(Label)`
 export default props => (
   <Card>
     <Img src={props.image} />
-    <Link to="/products/:id" sale={props.sale}>{props.cost}</Link>
-    {props.sale && <SaleLabel>Sale</SaleLabel>}
+    <Link to="/products/:id" isSale={props.isSale}>{props.cost}</Link>
+    {props.isSale && <SaleLabel>Sale</SaleLabel>}
   </Card>
 );

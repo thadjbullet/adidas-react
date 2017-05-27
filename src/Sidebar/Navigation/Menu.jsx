@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { withRouter } from 'react-router-dom';
 
 const Title = styled.div`
   color: #fff;
@@ -35,11 +36,17 @@ const Title = styled.div`
   }
 `;
 
-export default class Menu extends React.Component {
+class Menu extends React.Component {
   constructor(props) {
     super(props);
     this.state = { isOpen: false };
     this.handleClick = this.handleClick.bind(this);
+  }
+
+  componentWillMount() {
+    if (this.props.isExact) {
+      this.setState({ isOpen: true });
+    }
   }
 
   handleClick() {
@@ -59,3 +66,5 @@ export default class Menu extends React.Component {
     );
   }
 }
+
+export default withRouter(Menu);

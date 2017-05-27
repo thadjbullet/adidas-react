@@ -27,7 +27,9 @@ const View = styled.div`
 export default () => (
   <Router>
     <View>
-      <Sidebar />
+      <Route path="/products/:something">
+        <Sidebar />
+      </Route>
       <Switch>
         <Redirect exact from="/" to="/products/football/shoes" />
         <Route
