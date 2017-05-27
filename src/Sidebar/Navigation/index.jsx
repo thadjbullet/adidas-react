@@ -8,6 +8,7 @@ import media from '../../media';
 import Menu from './Menu';
 
 const Nav = styled.nav`
+  align-items: flex-start;
   display: ${props => (props.isMenuOpened ? 'flex' : 'none')};
   flex-direction: column;
   font-size: 24px;
@@ -41,6 +42,10 @@ const Link = styled(NavLink)`
   &.active {
     color: #fff;
   }
+
+  ${media.sm('max')`
+    margin-left: 30px;
+  `}
 `;
 
 const LinkWithActive = ({ to, children }) => (

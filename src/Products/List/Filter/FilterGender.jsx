@@ -11,7 +11,7 @@ const Container = styled.div`
   `}
 
   ${media.sm('max')`
-    padding: 0;
+    padding: 10px 0;
   `}
 
 
