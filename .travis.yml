@@ -9,7 +9,7 @@ script:
 deploy:
   provider: script
   on:
-    all_branches: true
+    branch: master
   skip_cleanup: true
   script:
   - yarn deploy
