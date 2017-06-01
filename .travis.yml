@@ -14,3 +14,4 @@ deploy:
   - now ln
   on:
     all_branches: true
+  skip_cleanup: true
