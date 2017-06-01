@@ -4,7 +4,7 @@ node_js:
 install:
   - yarn install
 before_deploy:
-  - yarn global add now
+  - npm i -g now
 script:
   - yarn lint
 deploy:
