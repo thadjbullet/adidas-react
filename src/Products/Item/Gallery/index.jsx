@@ -24,7 +24,7 @@ const Gallery = styled.div`
 
 const About = styled.p`
   font-family: 'Avenir';
-  font-weight: 800;
+  font-weight: 400;
   font-size: 33px;
   line-height: 1.52;
   color: #d8d8d8;

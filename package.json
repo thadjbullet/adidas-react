@@ -17,8 +17,8 @@
     "eslint-plugin-jsx-a11y": "^5.0.3",
     "eslint-plugin-react": "^7.0.1",
     "flow-bin": "^0.47.0",
-    "husky": "^0.13.3",
-    "react-scripts": "^1.0.6"
+    "husky": "^0.13.4",
+    "react-scripts": "^1.0.7"
   },
   "scripts": {
     "start": "react-scripts start",
