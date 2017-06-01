@@ -28,7 +28,7 @@
     "lint": "eslint src --ext=js,jsx",
     "prepush": "npm run lint",
     "flow": "flow",
-    "deploy": "now -e NODE_ENV='production' --token=$NOW_TOKEN --public && now ln --token=$NOW_TOKEN"
+    "deploy": "now --token=$NOW_TOKEN --public && now ln --token=$NOW_TOKEN"
   },
   "now": {
     "alias": "adidas-shop-kos"
