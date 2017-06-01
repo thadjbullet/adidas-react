@@ -12,3 +12,4 @@ deploy:
   script:
   - now --token $NOW_TOKEN --public
   - now ln
+  all_branches: true
