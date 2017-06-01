@@ -10,8 +10,8 @@ before_deploy:
 deploy:
   provider: script
   script:
-  - now --token $NOW_TOKEN --public
-  - now ln
+  - now --token=$NOW_TOKEN --public
+  - now ln --token=$NOW_TOKEN
   on:
     all_branches: true
   skip_cleanup: true
