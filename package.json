@@ -27,6 +27,8 @@
     "eject": "react-scripts eject",
     "lint": "eslint src --ext=js,jsx",
     "prepush": "npm run lint",
-    "flow": "flow"
-  }
+    "flow": "flow",
+    "deploy": "now --token=$NOW_TOKEN --public && now ln --token=$NOW_TOKEN"
+  },
+  "alias": "adidas-shop-kos"
 }
