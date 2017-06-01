@@ -2,14 +2,15 @@ language: node_js
 node_js:
   - "node"
 install:
-  - npm install
-before_script:
-  - npm install -g now
+  - yarn install
+before_deploy:
+  - yarn install -g now
 script:
-  - npm run lint
+  - yarn lint
 deploy:
+  provider: script
   on:
     all_branches: true
   skip_cleanup: true
   script:
-  - npm deploy
+  - yarn deploy
