@@ -3,7 +3,13 @@ node_js:
   - "node"
 install:
   - npm install
+before_script:
   - npm install -g now
 script:
   - npm run lint
+deploy:
+  on:
+    all_branches: true
+  skip_cleanup: true
+  script:
   - npm deploy
