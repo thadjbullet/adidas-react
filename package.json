@@ -30,5 +30,7 @@
     "flow": "flow",
     "deploy": "now --token=$NOW_TOKEN --public && now ln --token=$NOW_TOKEN"
   },
-  "alias": "adidas-shop-kos"
+  "now": {
+    "alias": "adidas-shop-kos"
+  }
 }
