@@ -39,6 +39,7 @@ const SaleLabel = styled(Label)`
 `;
 
 const Cost = styled.h2`
+  display: flex;
   font-size: 80px;
   font-family: 'AvenirBold';
   padding: 10px 0;

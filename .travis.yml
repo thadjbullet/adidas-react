@@ -2,6 +2,14 @@ language: node_js
 node_js:
   - "node"
 install:
-  - npm install
+  - yarn install
+  - npm i -g now
 script:
-  - npm run lint
+  - yarn lint
+deploy:
+  provider: script
+  on:
+    branch: master
+  skip_cleanup: true
+  script:
+  - yarn deploy
