@@ -4,6 +4,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 import Image from './Image';
+import GetImageLink from '../../../components/GetImageLink';
 
 const Container = styled.div`
   display: flex;
@@ -11,15 +12,16 @@ const Container = styled.div`
 
 const BigImage = styled.img`
   display: block;
-  margin: 0 auto;
+  margin: 10px auto 30px;
   max-height: 500px;
 `;
 
 const Gallery = styled.div`
   align-items: center;
   display: flex;
+  flex-wrap: wrap;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: center;
 `;
 
 const About = styled.p`
@@ -31,18 +33,6 @@ const About = styled.p`
   margin: 40px 0 170px;
   padding: 0;
 `;
-
-const CompanyName = styled.span`
-  color: #6e6e6e;
-`;
-
-const images = [
-  require('./shoe1.png'),
-  require('./shoe2.png'),
-  require('./shoe3.png'),
-  require('./shoe4.png'),
-  require('./shoe5.png'),
-];
 
 export default class GalleryItem extends React.Component {
   constructor() {
@@ -57,25 +47,39 @@ export default class GalleryItem extends React.Component {
   }
 
   render() {
+    console.log(this.props.item);
+    const item = this.props.item;
+    const images = this.props.item.images;
     return (
       <div>
         <Container>
-          <BigImage src={images[this.state.selectedIndex]} />
+          <BigImage
+            src={
+              this.props.item.images
+                ? GetImageLink(
+                    images[this.state.selectedIndex].id,
+                    images[this.state.selectedIndex].fileName,
+                    512,
+                  )
+                : null
+            }
+            alt={item.title}
+          />
         </Container>
         <Gallery>
-          {images.map((image, index) => (
-            <Image
-              src={image}
-              isSelected={this.state.selectedIndex === index}
-              onChangeImage={() => this.handleChangeImage(index)}
-            />
-          ))}
+          {images
+            ? images.map((image, index) => (
+              <Image
+                src={GetImageLink(image.id, image.fileName, 256)}
+                isSelected={this.state.selectedIndex === index}
+                onChangeImage={() => this.handleChangeImage(index)}
+                key={image.id}
+              />
+              ))
+            : null}
         </Gallery>
         <About>
-          <CompanyName>Adidas</CompanyName>
-          {' '}
-          is a German multinational corporation, headquartered in Herzogenaurach,
-          Germany, that designs and manufactures shoes, clothing and accessories.
+          {this.props.item.description}
         </About>
       </div>
     );

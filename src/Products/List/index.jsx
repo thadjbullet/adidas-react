@@ -1,4 +1,4 @@
-/* eslint-disable global-require */
+/* eslint-disable global-require, quote-props */
 
 import React from 'react';
 import styled from 'styled-components';
@@ -6,6 +6,7 @@ import { Row, Col } from 'react-flexbox-grid';
 
 import Filter from './Filter';
 import Card from './Card';
+import imageLink from '../../components/GetImageLink';
 
 const Container = styled.main`
   flex-basis: 66.6667%;
@@ -17,30 +18,64 @@ const Content = styled.div`
   justify-content: space-between;
 `;
 
-export default () => (
-  <Container>
-    <Filter />
-    <Content>
-      <Row>
-        <Col xs={12} sm={6} md={6} lg={4}>
-          <Card image={require('./shue-1.png')} cost="170$" isSale />
-        </Col>
-        <Col xs={12} sm={6} md={6} lg={4}>
-          <Card image={require('./shoes.png')} cost="240.99$" />
-        </Col>
-        <Col xs={12} sm={6} md={6} lg={4}>
-          <Card image={require('./shue-1.png')} cost="1024$" />
-        </Col>
-        <Col xs={12} sm={6} md={6} lg={4}>
-          <Card image={require('./shue-1.png')} cost="170$" />
-        </Col>
-        <Col xs={12} sm={6} md={6} lg={4}>
-          <Card image={require('./shoes.png')} cost="170$" isSale />
-        </Col>
-        <Col xs={12} sm={6} md={6} lg={4}>
-          <Card image={require('./shue-1.png')} cost="170$" />
-        </Col>
-      </Row>
-    </Content>
-  </Container>
-);
+export default class ProductsList extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      data: [],
+    };
+    this.fetchData = this.fetchData.bind(this);
+  }
+
+  componentWillMount() {
+    this.fetchData(this.props);
+  }
+
+  componentWillReceiveProps(newProps) {
+    this.fetchData(newProps);
+  }
+
+  fetchData(props) {
+    const { url } = props.match;
+
+    fetch(`https://erodionov-adidas-fake-api.now.sh/v1${url}/`, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'text/plain',
+        Accept: '*/*',
+        'Access-Control-Allow-Origin': 'http://kserebryansky-adidas-shop.now.sh',
+      },
+      mode: 'cors',
+    })
+      .then(response => response.json())
+      .then(json => this.setState({ data: json.items }))
+      .catch(error => global.console.log('request failed', error));
+  }
+
+  render() {
+    const data = this.state.data;
+    global.console.log('data', data);
+    return (
+      <Container>
+        <Filter sizes={data.length !== 0 ? data[0].sizes : null} />
+        <Content>
+          <Row>
+            {data.map(item => (
+              <Col xs={12} sm={6} md={6} lg={4} key={item.id}>
+                <Card
+                  image={imageLink(
+                    item.images[0].id,
+                    item.images[0].fileName,
+                    512,
+                  )}
+                  to={`${this.props.match.url}/${item.id}`}
+                  cost={item.price}
+                />
+              </Col>
+            ))}
+          </Row>
+        </Content>
+      </Container>
+    );
+  }
+}

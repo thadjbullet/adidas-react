@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import SizeButton from './SizeButton';
 
 import media from '../../../media';
 
@@ -19,30 +20,33 @@ const Span = styled.span`
   text-transform: uppercase;
 `;
 
-const Button = styled.button`
-  background: none;
-  border: none;
-  cursor: pointer;
-  font-family: 'AvenirBold';
-  font-size: 24px;
-  color: ${props => (props.isActive ? '#4d42f8' : '#d6d6d6')};
-  padding: 0 4px;
-  text-transform: uppercase;
-
-  &:hover {
-    color: #4d42f8;
+export default class FilterSize extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { selectedId: 0 };
+    this.selectButton = this.selectButton.bind(this);
   }
-`;
 
-export default () => (
-  <Container>
-    <Span>Size</Span>
-    <Button>36</Button>
-    <Button>37</Button>
-    <Button>38</Button>
-    <Button>39</Button>
-    <Button>40</Button>
-    <Button isActive>41</Button>
-    <Button>42</Button>
-  </Container>
-);
+  selectButton(selectedId) {
+    this.setState({ selectedId });
+  }
+
+  render() {
+    return (
+      <Container>
+        <Span>Size</Span>
+        {this.props.sizes &&
+          this.props.sizes.map(item => (
+            <SizeButton
+              selectButton={this.selectButton}
+              id={item}
+              selectedId={this.state.selectedId}
+              key={item}
+            >
+              {item}
+            </SizeButton>
+          ))}
+      </Container>
+    );
+  }
+}

@@ -5,6 +5,7 @@ import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 
 import Label from '../../components/Label';
+import formatPrice from '../../components/FormatPrice';
 
 const Card = styled.div`
   background: #f4f4f4;
@@ -23,8 +24,8 @@ const Img = styled.img`
 
 const Link = styled(NavLink)`
   background: #fff;
-  background-image: ${props => (props.isSale ? 'linear-gradient(107deg, #0c09bf, #966dd8)' : '')};
-  color: ${props => (props.isSale ? '#fff' : '#111')};
+  background-image: ${props => (props.activeClassName ? 'linear-gradient(107deg, #0c09bf, #966dd8)' : '')};
+  color: ${props => (props.activeClassName ? '#fff' : '#111')};
   display: block;
   font-family: 'AvenirBold';
   font-size: 30px;
@@ -34,7 +35,7 @@ const Link = styled(NavLink)`
   width: 100%;
 
   &:hover {
-    background-image: ${props => (props.isSale ? 'linear-gradient(180deg, #0c09bf, #966dd8)' : 'linear-gradient(107deg, #0c09bf, #966dd8)')};
+    background-image: ${props => (props.activeClassName ? 'linear-gradient(180deg, #0c09bf, #966dd8)' : 'linear-gradient(107deg, #0c09bf, #966dd8)')};
     color: #fff;
   }
 `;
@@ -45,10 +46,12 @@ const SaleLabel = styled(Label)`
   right: 17px;
 `;
 
-export default props => (
+export default ({ image, cost, isSale, to }) => (
   <Card>
-    <Img src={props.image} />
-    <Link to="/products/:id" isSale={props.isSale}>{props.cost}</Link>
-    {props.isSale && <SaleLabel>Sale</SaleLabel>}
+    <Img src={image} />
+    <Link to={to} activeClassName={isSale ? 'active' : ''}>
+      {formatPrice(cost, '$')}
+    </Link>
+    {isSale && <SaleLabel>Sale</SaleLabel>}
   </Card>
 );

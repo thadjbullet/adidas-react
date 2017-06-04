@@ -25,10 +25,10 @@ const Header = styled.header`
   `}
 `;
 
-export default () => (
+export default ({ sizes }) => (
   <Header>
     <Icon />
     <Gender />
-    <Size />
+    <Size sizes={sizes} />
   </Header>
 );

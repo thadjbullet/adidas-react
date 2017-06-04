@@ -1,24 +1,28 @@
 /*---------Fonts---------*/
 
 @font-face {
-    font-family: 'Avenir';
-    font-style: normal;
-    font-weight: 400;
-    src: url(./fonts/avenir-next-regular/avenir-next-regular.ttf) format("truetype"), url(./fonts/avenir-next-regular/avenir-next-regular.woff) format("woff")
+  font-family: 'Avenir';
+  font-style: normal;
+  font-weight: 400;
+  src: url(./fonts/avenir-next-regular/avenir-next-regular.ttf)
+      format("truetype"),
+    url(./fonts/avenir-next-regular/avenir-next-regular.woff) format("woff");
 }
 
 @font-face {
-    font-family: 'AvenirBold';
-    font-style: normal;
-    font-weight: 400;
-    src: url(./fonts/avenir-next-bold/avenir-next-bold.ttf) format("truetype"), url(./fonts/avenir-next-bold/avenir-next-bold.woff) format("woff")
+  font-family: 'AvenirBold';
+  font-style: normal;
+  font-weight: 400;
+  src: url(./fonts/avenir-next-bold/avenir-next-bold.ttf) format("truetype"),
+    url(./fonts/avenir-next-bold/avenir-next-bold.woff) format("woff");
 }
 
 @font-face {
-    font-family: 'AndaleMono';
-    font-style: normal;
-    font-weight: 400;
-    src: url(./fonts/andale-mono/andale-mono.ttf) format("truetype"), url(./fonts/andale-mono/andale-mono.woff) format("woff")
+  font-family: 'AndaleMono';
+  font-style: normal;
+  font-weight: 400;
+  src: url(./fonts/andale-mono/andale-mono.ttf) format("truetype"),
+    url(./fonts/andale-mono/andale-mono.woff) format("woff");
 }
 
 body {
@@ -28,5 +32,5 @@ body {
 }
 
 * {
-    transition: all 0.3s ease;
+  transition: all 0.3s ease;
 }
