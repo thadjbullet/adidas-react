@@ -57,6 +57,7 @@ export default class Page extends React.Component {
         images: json.images,
         title: json.title,
         price: `${(json.price / 100).toFixed(2)}`,
+        sale: Math.random() > 0.7,
       }))
       .then(json => this.setState({ item: json }));
   }

@@ -23,7 +23,7 @@ export default class ProductsList extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      data: [],
+      items: [],
     };
     this.fetchData = this.fetchData.bind(this);
   }
@@ -40,19 +40,18 @@ export default class ProductsList extends React.Component {
     const { url } = props.match;
 
     Get(url)
-      .then(json => this.setState({ data: json.items }))
+      .then(json => this.setState({ items: json.items }))
       .catch(error => global.console.log('request failed', error));
   }
 
   render() {
-    const data = this.state.data;
-    global.console.log('data', data);
+    const items = this.state.items;
     return (
       <Container>
-        <Filter sizes={data.length !== 0 ? data[0].sizes : null} />
+        <Filter sizes={items.length !== 0 ? items[0].sizes : null} />
         <Content>
           <Row>
-            {data.map(item => (
+            {items.map(item => (
               <Col xs={12} sm={6} md={6} lg={4} key={item.id}>
                 <Card
                   image={imageLink(
@@ -62,6 +61,7 @@ export default class ProductsList extends React.Component {
                   )}
                   to={`${this.props.match.url}/${item.id}`}
                   cost={item.price}
+                  isSale={Math.random() > 0.7}
                 />
               </Col>
             ))}
