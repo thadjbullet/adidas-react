@@ -56,7 +56,7 @@ const SaveButton = styled.button`
 export default props => (
   <Header>
     <Container>
-      <Title>Ultra <br />Boost</Title>
+      <Title>{props.children}</Title>
       <SaveButton color={props.color}>Save</SaveButton>
     </Container>
   </Header>

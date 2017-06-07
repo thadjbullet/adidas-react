@@ -66,8 +66,8 @@ export default props => (
         <Button color="#4a4a4a" onChangeColor={props.onChangeColor} />
         <Button color="#e0e0e0" onChangeColor={props.onChangeColor} />
       </Wrapper>
-      <SaleLabel color={props.color}>Sale</SaleLabel>
+      {props.sale && <SaleLabel color={props.color}>Sale</SaleLabel>}
     </ColorFilter>
-    <Cost color={props.color}>170$</Cost>
+    <Cost color={props.color}>{`$${props.cost}`}</Cost>
   </Container>
 );

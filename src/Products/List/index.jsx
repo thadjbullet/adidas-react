@@ -3,6 +3,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Row, Col } from 'react-flexbox-grid';
+import Get from '../../Api';
 
 import Filter from './Filter';
 import Card from './Card';
@@ -38,16 +39,7 @@ export default class ProductsList extends React.Component {
   fetchData(props) {
     const { url } = props.match;
 
-    fetch(`https://erodionov-adidas-fake-api.now.sh/v1${url}/`, {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'text/plain',
-        Accept: '*/*',
-        'Access-Control-Allow-Origin': 'http://kserebryansky-adidas-shop.now.sh',
-      },
-      mode: 'cors',
-    })
-      .then(response => response.json())
+    Get(url)
       .then(json => this.setState({ data: json.items }))
       .catch(error => global.console.log('request failed', error));
   }

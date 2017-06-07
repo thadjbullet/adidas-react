@@ -17,6 +17,7 @@ const Aside = styled.aside`
   max-width: 414px;
 
   ${media.sm('max')`
+    flex-basis: auto;
     justify-content: center;
     max-width: 100%;
     min-height: 64px;

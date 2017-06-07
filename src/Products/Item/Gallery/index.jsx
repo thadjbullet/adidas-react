@@ -2,18 +2,19 @@
 
 import React from 'react';
 import styled from 'styled-components';
+import media from '../../../media';
 
 import Image from './Image';
 import GetImageLink from '../../../components/GetImageLink';
 
-const Container = styled.div`
-  display: flex;
-`;
-
 const BigImage = styled.img`
   display: block;
-  margin: 10px auto 30px;
-  max-height: 500px;
+  margin: 30px auto 30px;
+  width: 100%;
+
+  ${media.sm('min')`
+    width: 80%;
+  `}
 `;
 
 const Gallery = styled.div`
@@ -47,25 +48,22 @@ export default class GalleryItem extends React.Component {
   }
 
   render() {
-    console.log(this.props.item);
     const item = this.props.item;
     const images = this.props.item.images;
     return (
       <div>
-        <Container>
-          <BigImage
-            src={
-              this.props.item.images
-                ? GetImageLink(
-                    images[this.state.selectedIndex].id,
-                    images[this.state.selectedIndex].fileName,
-                    512,
-                  )
-                : null
-            }
-            alt={item.title}
-          />
-        </Container>
+        <BigImage
+          src={
+            images
+              ? GetImageLink(
+                  images[this.state.selectedIndex].id,
+                  images[this.state.selectedIndex].fileName,
+                  1024,
+                )
+              : null
+          }
+          alt={item.title}
+        />
         <Gallery>
           {images
             ? images.map((image, index) => (
@@ -74,6 +72,7 @@ export default class GalleryItem extends React.Component {
                 isSelected={this.state.selectedIndex === index}
                 onChangeImage={() => this.handleChangeImage(index)}
                 key={image.id}
+                alt={item.title}
               />
               ))
             : null}

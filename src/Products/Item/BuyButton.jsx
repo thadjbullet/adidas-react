@@ -11,7 +11,7 @@ export default styled.button`
   font-size: 32px;
   font-weight: bold;
   border: none;
-  width: 80%;
+  width: calc(100% - 414px);
   padding: 37px 0;
   position: fixed;
   text-transform: uppercase;

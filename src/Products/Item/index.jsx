@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import media from '../../media';
+import Get from '../../Api';
 
 import Title from './Title';
 import Options from './Options';
@@ -48,18 +49,15 @@ export default class Page extends React.Component {
   }
 
   fetchImages(props) {
-    const { url } = props.match;
-
-    fetch(`https://erodionov-adidas-fake-api.now.sh/v1/${url}`, {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'text/plain',
-        Accept: '*/*',
-        'Access-Control-Allow-Origin': 'http://kserebryansky-adidas-shop.now.sh',
-      },
-      mode: 'cors',
-    })
-      .then(res => res.json())
+    const url = props.match.url;
+    Get(url)
+      .then(json => ({
+        description: json.description,
+        id: json.id,
+        images: json.images,
+        title: json.title,
+        price: `${(json.price / 100).toFixed(2)}`,
+      }))
       .then(json => this.setState({ item: json }));
   }
 
@@ -74,10 +72,12 @@ export default class Page extends React.Component {
       <Main>
         <Item>
           <Container>
-            <Title color={this.state.color} />
+            <Title color={this.state.color}>{this.state.item.title}</Title>
             <Options
               onChangeColor={this.handleChangeColor}
               color={this.state.color}
+              sale={this.state.item.sale}
+              cost={this.state.item.price}
             />
           </Container>
           <Gallery item={this.state.item} />
