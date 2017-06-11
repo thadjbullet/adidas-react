@@ -32,6 +32,7 @@ export default class SizeButton extends React.Component {
         onClick={this.handleClick}
         isSelected={this.props.isSelected}
         id={this.props.id}
+        selectedId={this.props.selectedId}
       >
         {this.props.children}
       </Button>
