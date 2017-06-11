@@ -23,12 +23,12 @@ const Span = styled.span`
 export default class FilterSize extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { selectedId: 0 };
-    this.selectButton = this.selectButton.bind(this);
+    this.state = { id: 0 };
+    this.isSelected = this.isSelected.bind(this);
   }
 
-  selectButton(selectedId) {
-    this.setState({ selectedId });
+  isSelected(id) {
+    this.setState({ id });
   }
 
   render() {
@@ -38,9 +38,9 @@ export default class FilterSize extends React.Component {
         {this.props.sizes &&
           this.props.sizes.map(item => (
             <SizeButton
-              selectButton={this.selectButton}
+              isSelected={this.isSelected}
               id={item}
-              selectedId={this.state.selectedId}
+              selectedId={this.state.id}
               key={item}
             >
               {item}

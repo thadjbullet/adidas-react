@@ -2,13 +2,9 @@ import React from 'react';
 import styled from 'styled-components';
 import media from '../../media';
 
-const Header = styled.header`
-
-`;
-
 const Container = styled.div`
-  justify-content: flex-start;
   align-items: flex-start;
+  justify-content: flex-start;
 `;
 
 const Title = styled.h1`
@@ -54,10 +50,10 @@ const SaveButton = styled.button`
 `;
 
 export default props => (
-  <Header>
+  <header>
     <Container>
       <Title>{props.children}</Title>
       <SaveButton color={props.color}>Save</SaveButton>
     </Container>
-  </Header>
+  </header>
 );

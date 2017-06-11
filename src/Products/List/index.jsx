@@ -1,13 +1,11 @@
-/* eslint-disable global-require, quote-props */
-
 import React from 'react';
 import styled from 'styled-components';
 import { Row, Col } from 'react-flexbox-grid';
-import Get from '../../Api';
+import get from '../../api';
 
 import Filter from './Filter';
 import Card from './Card';
-import imageLink from '../../components/GetImageLink';
+import imageLink from '../../imageLink';
 
 const Container = styled.main`
   flex-basis: 66.6667%;
@@ -23,35 +21,40 @@ export default class ProductsList extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      items: [],
+      products: [],
     };
     this.fetchData = this.fetchData.bind(this);
   }
 
-  componentWillMount() {
-    this.fetchData(this.props);
+  componentDidMount() {
+    this.fetchData(this.props.match.url);
   }
 
   componentWillReceiveProps(newProps) {
-    this.fetchData(newProps);
+    this.fetchData(newProps.match.url);
   }
 
   fetchData(props) {
-    const { url } = props.match;
-
-    Get(url)
-      .then(json => this.setState({ items: json.items }))
-      .catch(error => global.console.log('request failed', error));
+    get(props)
+      .then(res =>
+        res.json().then(json => this.setState({ products: json.items })),
+      )
+      .catch(error => console.error('request failed: ', error));
   }
 
   render() {
-    const items = this.state.items;
     return (
       <Container>
-        <Filter sizes={items.length !== 0 ? items[0].sizes : null} />
+        <Filter
+          sizes={
+            this.state.products.length !== 0
+              ? this.state.products[0].sizes
+              : null
+          }
+        />
         <Content>
           <Row>
-            {items.map(item => (
+            {this.state.products.map(item => (
               <Col xs={12} sm={6} md={6} lg={4} key={item.id}>
                 <Card
                   image={imageLink(
@@ -60,7 +63,7 @@ export default class ProductsList extends React.Component {
                     512,
                   )}
                   to={`${this.props.match.url}/${item.id}`}
-                  cost={item.price}
+                  cost={item}
                   isSale={Math.random() > 0.7}
                 />
               </Col>

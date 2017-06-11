@@ -19,18 +19,18 @@ const Button = styled.button`
 export default class SizeButton extends React.Component {
   constructor(props) {
     super(props);
-    this.handleOnClick = this.handleOnClick.bind(this);
+    this.handleClick = this.handleClick.bind(this);
   }
 
-  handleOnClick() {
-    this.props.selectButton(this.props.id);
+  handleClick() {
+    this.props.isSelected(this.props.id);
   }
 
   render() {
     return (
       <Button
-        onClick={this.handleOnClick}
-        selectedId={this.props.selectedId}
+        onClick={this.handleClick}
+        isSelected={this.props.isSelected}
         id={this.props.id}
       >
         {this.props.children}

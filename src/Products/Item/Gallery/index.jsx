@@ -2,20 +2,10 @@
 
 import React from 'react';
 import styled from 'styled-components';
-import media from '../../../media';
 
 import Image from './Image';
-import GetImageLink from '../../../components/GetImageLink';
-
-const BigImage = styled.img`
-  display: block;
-  margin: 30px auto 30px;
-  width: 100%;
-
-  ${media.sm('min')`
-    width: 80%;
-  `}
-`;
+import BigImage from './BigImage';
+import imageLink from '../../../imageLink';
 
 const Gallery = styled.div`
   align-items: center;
@@ -48,31 +38,18 @@ export default class GalleryItem extends React.Component {
   }
 
   render() {
-    const item = this.props.item;
-    const images = this.props.item.images;
     return (
       <div>
-        <BigImage
-          src={
-            images
-              ? GetImageLink(
-                  images[this.state.selectedIndex].id,
-                  images[this.state.selectedIndex].fileName,
-                  1024,
-                )
-              : null
-          }
-          alt={item.title}
-        />
+        <BigImage item={this.props.item} index={this.state.selectedIndex} />
         <Gallery>
-          {images
-            ? images.map((image, index) => (
+          {this.props.item.images
+            ? this.props.item.images.map((image, index) => (
               <Image
-                src={GetImageLink(image.id, image.fileName, 256)}
+                src={imageLink(image.id, image.fileName, 256)}
                 isSelected={this.state.selectedIndex === index}
                 onChangeImage={() => this.handleChangeImage(index)}
                 key={image.id}
-                alt={item.title}
+                alt={this.props.item.title}
               />
               ))
             : null}

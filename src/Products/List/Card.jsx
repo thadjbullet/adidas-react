@@ -1,11 +1,9 @@
-/* eslint-disable react/prop-types */
-
 import React from 'react';
 import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 
 import Label from '../../components/Label';
-import formatPrice from '../../components/FormatPrice';
+import formatPrice from '../../formatPrice';
 
 const Card = styled.div`
   background: #f4f4f4;
@@ -50,7 +48,7 @@ export default ({ image, cost, isSale, to }) => (
   <Card>
     <Img src={image} />
     <Link to={to} activeClassName={isSale ? 'active' : ''}>
-      {formatPrice(cost, '$')}
+      {formatPrice(cost)}
     </Link>
     {isSale && <SaleLabel>Sale</SaleLabel>}
   </Card>

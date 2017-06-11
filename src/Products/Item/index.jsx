@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import media from '../../media';
-import Get from '../../Api';
+import get from '../../api';
 
 import Title from './Title';
 import Options from './Options';
@@ -40,7 +40,7 @@ export default class Page extends React.Component {
     this.fetchImages = this.fetchImages.bind(this);
   }
 
-  componentWillMount() {
+  componentDidMount() {
     this.fetchImages(this.props);
   }
 
@@ -48,18 +48,29 @@ export default class Page extends React.Component {
     this.fetchImages(props);
   }
 
+  /* eslint-disable class-methods-use-this */
+  transformInputValues(json) {
+    return {
+      description: json.description,
+      id: json.id,
+      images: json.images,
+      title: json.title,
+      price: `${(json.price / 100).toFixed(2)}`,
+      sale: Math.random() > 0.7,
+    };
+  }
+  /* eslint-enable class-methods-use-this */
+
   fetchImages(props) {
     const url = props.match.url;
-    Get(url)
-      .then(json => ({
-        description: json.description,
-        id: json.id,
-        images: json.images,
-        title: json.title,
-        price: `${(json.price / 100).toFixed(2)}`,
-        sale: Math.random() > 0.7,
-      }))
-      .then(json => this.setState({ item: json }));
+    get(url)
+      .then(res =>
+        res
+          .json()
+          .then(json => this.transformInputValues(json))
+          .then(json => this.setState({ item: json })),
+      )
+      .catch(err => console.log('request failed: ', err));
   }
 
   handleChangeColor(color) {
