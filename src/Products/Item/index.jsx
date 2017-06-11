@@ -38,6 +38,7 @@ export default class Page extends React.Component {
     this.state = { color: '#c5c5c5', item: {} };
     this.handleChangeColor = this.handleChangeColor.bind(this);
     this.fetchImages = this.fetchImages.bind(this);
+    this.transformInputValues = this.transformInputValues.bind(this);
   }
 
   componentDidMount() {
@@ -68,8 +69,9 @@ export default class Page extends React.Component {
       .then(res =>
         res
           .json()
-          .then(json => this.transformInputValues(json))
-          .then(json => this.setState({ item: json })),
+          .then(json =>
+            this.setState({ item: this.transformInputValues(json) }),
+          ),
       )
       .catch(err => console.log('request failed: ', err));
   }
