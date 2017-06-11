@@ -61,6 +61,7 @@ export default class Page extends React.Component {
   }
   /* eslint-enable class-methods-use-this */
 
+  /* eslint-disable no-console*/
   fetchImages(props) {
     const url = props.match.url;
     get(url)
@@ -72,6 +73,7 @@ export default class Page extends React.Component {
       )
       .catch(err => console.log('request failed: ', err));
   }
+  /* eslint-enable no-console*/
 
   handleChangeColor(color) {
     this.setState({

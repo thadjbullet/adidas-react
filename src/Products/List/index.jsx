@@ -34,6 +34,7 @@ export default class ProductsList extends React.Component {
     this.fetchData(newProps.match.url);
   }
 
+  /* eslint-disable no-console*/
   fetchData(props) {
     get(props)
       .then(res =>
@@ -41,6 +42,7 @@ export default class ProductsList extends React.Component {
       )
       .catch(error => console.error('request failed: ', error));
   }
+  /* eslint-enable no-console*/
 
   render() {
     return (
