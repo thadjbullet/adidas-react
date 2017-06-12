@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Row, Col } from 'react-flexbox-grid';
-import get from '../../api';
+import { get } from '../../api';
 import { transformInputValues, imageLink, getSizes } from '../../utilities';
 
 import Filter from './Filter';
