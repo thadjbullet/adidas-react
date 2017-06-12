@@ -25,7 +25,6 @@ export default class ProductsList extends React.Component {
       filter: [],
     };
     this.fetchData = this.fetchData.bind(this);
-    this.transformInputValues = this.transformInputValues.bind(this);
   }
 
   componentDidMount() {
@@ -49,20 +48,6 @@ export default class ProductsList extends React.Component {
       .catch(error => console.error('request failed: ', error));
   }
   /* eslint-enable no-console*/
-
-  /* eslint-disable class-methods-use-this */
-  transformInputValues(json) {
-    return {
-      currency: json.currency,
-      id: json.id,
-      images: json.images[0],
-      title: json.title,
-      price: `${(json.price / 100).toFixed(2)}`,
-      sizes: json.sizes,
-      sale: Math.random() > 0.7,
-    };
-  }
-  /* eslint-enable class-methods-use-this */
 
   render() {
     return (

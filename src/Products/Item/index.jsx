@@ -39,7 +39,6 @@ export default class Page extends React.Component {
     this.state = { color: '#c5c5c5', product: {} };
     this.handleChangeColor = this.handleChangeColor.bind(this);
     this.fetchData = this.fetchData.bind(this);
-    this.transformInputValues = this.transformInputValues.bind(this);
   }
 
   componentDidMount() {
@@ -49,19 +48,6 @@ export default class Page extends React.Component {
   componentWillReceiveProps(props) {
     this.fetchData(props);
   }
-
-  /* eslint-disable class-methods-use-this */
-  transformInputValues(json) {
-    return {
-      description: json.description,
-      id: json.id,
-      images: json.images,
-      title: json.title,
-      price: `${(json.price / 100).toFixed(2)}`,
-      sale: Math.random() > 0.7,
-    };
-  }
-  /* eslint-enable class-methods-use-this */
 
   /* eslint-disable no-console*/
   fetchData(props) {
