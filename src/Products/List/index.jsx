@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { Row, Col } from 'react-flexbox-grid';
 import get from '../../api';
-import { transformInputValues, imageLink } from '../../utilities';
+import { transformInputValues, imageLink, fetchSizes } from '../../utilities';
 
 import Filter from './Filter';
 import Card from './Card';
@@ -23,6 +23,7 @@ export default class ProductsList extends React.Component {
     this.state = {
       products: [],
       filter: [],
+      sizes: [],
     };
     this.fetchData = this.fetchData.bind(this);
   }
@@ -42,6 +43,7 @@ export default class ProductsList extends React.Component {
         res.json().then(json =>
           this.setState({
             products: json.items.map(item => transformInputValues(item)),
+            sizes: fetchSizes(json.items.map(({ sizes }) => ({ sizes }))),
           }),
         ),
       )
@@ -52,9 +54,7 @@ export default class ProductsList extends React.Component {
   render() {
     return (
       <Container>
-        <Filter
-          sizes={this.state.products.length && this.state.products[0].sizes}
-        />
+        <Filter sizes={this.state.sizes} />
         <Content>
           <Row>
             {this.state.products.map(item => (
