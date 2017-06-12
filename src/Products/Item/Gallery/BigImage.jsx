@@ -6,7 +6,7 @@ import imageLink from '../../../imageLink';
 
 const BigImage = styled.img`
   display: block;
-  margin: 30px auto 30px;
+  margin: 32px auto 30px;
   width: 100%;
 
   ${media.sm('min')`

@@ -2,7 +2,6 @@ import React from 'react';
 import styled from 'styled-components';
 
 import Logo from './Logo';
-import Search from './Search';
 import Nav from './Navigation';
 import media from '../media';
 
@@ -23,6 +22,7 @@ const Aside = styled.aside`
     min-height: 64px;
   `}
 `;
+
 const Container = styled.div`
   margin: 0;
   padding: 0;
@@ -50,7 +50,6 @@ export default class Sidebar extends React.Component {
             handleClick={this.handleClick}
             isMenuOpened={this.state.isMenuOpened}
           />
-          <Search />
           <Nav isMenuOpened={this.state.isMenuOpened} />
         </Container>
       </Aside>

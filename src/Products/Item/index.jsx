@@ -13,7 +13,7 @@ const Main = styled.main`
   flex: 1;
 `;
 
-const product = styled.div`
+const Product = styled.div`
   flex: 1;
   padding: 0 30px;
 `;
@@ -37,16 +37,16 @@ export default class Page extends React.Component {
     super(props);
     this.state = { color: '#c5c5c5', product: {} };
     this.handleChangeColor = this.handleChangeColor.bind(this);
-    this.fetchImages = this.fetchImages.bind(this);
+    this.fetchData = this.fetchData.bind(this);
     this.transformInputValues = this.transformInputValues.bind(this);
   }
 
   componentDidMount() {
-    this.fetchImages(this.props);
+    this.fetchData(this.props);
   }
 
   componentWillReceiveProps(props) {
-    this.fetchImages(props);
+    this.fetchData(props);
   }
 
   /* eslint-disable class-methods-use-this */
@@ -63,7 +63,7 @@ export default class Page extends React.Component {
   /* eslint-enable class-methods-use-this */
 
   /* eslint-disable no-console*/
-  fetchImages(props) {
+  fetchData(props) {
     const url = props.match.url;
     get(url)
       .then(res =>
@@ -86,7 +86,7 @@ export default class Page extends React.Component {
   render() {
     return (
       <Main>
-        <product>
+        <Product>
           <Container>
             <Title color={this.state.color}>{this.state.product.title}</Title>
             <Options
@@ -97,7 +97,7 @@ export default class Page extends React.Component {
             />
           </Container>
           <Gallery product={this.state.product} />
-        </product>
+        </Product>
         <BuyButton>Buy Now</BuyButton>
       </Main>
     );

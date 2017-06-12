@@ -8,7 +8,7 @@ import BigImage from './BigImage';
 import imageLink from '../../../imageLink';
 
 const Gallery = styled.div`
-  align-products: center;
+  align-items: center;
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
