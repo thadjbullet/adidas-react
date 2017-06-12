@@ -25,10 +25,10 @@ const Header = styled.header`
   `}
 `;
 
-export default ({ sizes }) => (
+export default ({ sizes, handleFilter }) => (
   <Header>
     <Icon />
     <Gender />
-    <Size sizes={sizes} />
+    <Size sizes={sizes} handleFilter={handleFilter} />
   </Header>
 );

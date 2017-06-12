@@ -21,7 +21,7 @@ export const formatPrice = ({ price, currency }) => {
 export const imageLink = (id, fileName, height) =>
   `http://demandware.edgesuite.net/sits_pod20-adidas/dw/image/v2/aaqx_prd/on/demandware.static/-/Sites-adidas-products/en_US/${id}/zoom/${fileName}?sh=${height}`;
 
-export const fetchSizes = (products) => {
+export const getSizes = (products) => {
   const sizes = Array.from(
     new Set(products.reduce((newArr, arr) => [...newArr, ...arr.sizes], [])),
   );

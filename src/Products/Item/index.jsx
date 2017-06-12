@@ -8,6 +8,7 @@ import Title from './Title';
 import Options from './Options';
 import Gallery from './Gallery';
 import BuyButton from './BuyButton';
+import Loading from '../../components/Loading';
 
 const Main = styled.main`
   flex-basis: 66.66667%;
@@ -36,23 +37,22 @@ const Container = styled.div`
 export default class Page extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { color: '#c5c5c5', product: {} };
+    this.state = { color: '#c5c5c5', product: null };
     this.handleChangeColor = this.handleChangeColor.bind(this);
     this.fetchData = this.fetchData.bind(this);
   }
 
   componentDidMount() {
-    this.fetchData(this.props);
+    this.fetchData(this.props.match.url);
   }
 
   componentWillReceiveProps(props) {
-    this.fetchData(props);
+    this.fetchData(props.match.url);
   }
 
   /* eslint-disable no-console*/
   fetchData(props) {
-    const url = props.match.url;
-    get(url)
+    get(props)
       .then(res =>
         res
           .json()
@@ -71,18 +71,22 @@ export default class Page extends React.Component {
   render() {
     return (
       <Main>
-        <Product>
-          <Container>
-            <Title color={this.state.color}>{this.state.product.title}</Title>
-            <Options
-              onChangeColor={this.handleChangeColor}
-              color={this.state.color}
-              sale={this.state.product.sale}
-              cost={this.state.product}
-            />
-          </Container>
-          <Gallery product={this.state.product} />
-        </Product>
+        {this.state.product
+          ? <Product>
+            <Container>
+              <Title color={this.state.color}>
+                {this.state.product.title}
+              </Title>
+              <Options
+                onChangeColor={this.handleChangeColor}
+                color={this.state.color}
+                sale={this.state.product.sale}
+                cost={this.state.product}
+              />
+            </Container>
+            <Gallery product={this.state.product} />
+          </Product>
+          : <Loading />}
         <BuyButton>Buy Now</BuyButton>
       </Main>
     );

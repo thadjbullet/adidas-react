@@ -23,12 +23,19 @@ const Span = styled.span`
 export default class FilterSize extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { id: 0 };
+    this.state = { id: null };
     this.isSelected = this.isSelected.bind(this);
   }
 
   isSelected(id) {
-    this.setState({ id });
+    /* If click on same element - remove selection */
+    if (this.state.id === id) {
+      this.setState({ id: null });
+      this.props.handleFilter(null);
+    } else {
+      this.setState({ id });
+      this.props.handleFilter(id);
+    }
   }
 
   render() {
