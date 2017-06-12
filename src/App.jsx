@@ -13,6 +13,7 @@ import Sidebar from './Sidebar';
 import media from './media';
 import ProductList from './Products/List';
 import ProductItem from './Products/Item';
+import Copyright from './Copyright';
 
 const View = styled.div`
   display: flex;
@@ -40,6 +41,7 @@ export default () => (
           path="/products/:category/:section/:id"
           component={ProductItem}
         />
+        <Route exact path="/copyright" component={Copyright} />
       </Switch>
     </View>
   </Router>
