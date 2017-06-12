@@ -67,11 +67,7 @@ export default class ProductsList extends React.Component {
     return (
       <Container>
         <Filter
-          sizes={
-            this.state.products.length !== 0
-              ? this.state.products[0].sizes
-              : null
-          }
+          sizes={this.state.products.length && this.state.products[0].sizes}
         />
         <Content>
           <Row>

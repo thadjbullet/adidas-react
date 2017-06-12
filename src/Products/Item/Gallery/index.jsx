@@ -8,7 +8,7 @@ import BigImage from './BigImage';
 import imageLink from '../../../imageLink';
 
 const Gallery = styled.div`
-  align-items: center;
+  align-products: center;
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
@@ -25,7 +25,7 @@ const About = styled.p`
   padding: 0;
 `;
 
-export default class GalleryItem extends React.Component {
+export default class Galleryproduct extends React.Component {
   constructor() {
     super();
     this.state = { selectedIndex: 0 };
@@ -40,22 +40,24 @@ export default class GalleryItem extends React.Component {
   render() {
     return (
       <div>
-        <BigImage item={this.props.item} index={this.state.selectedIndex} />
+        <BigImage
+          product={this.props.product}
+          index={this.state.selectedIndex}
+        />
         <Gallery>
-          {this.props.item.images
-            ? this.props.item.images.map((image, index) => (
+          {this.props.product.images &&
+            this.props.product.images.map((image, index) => (
               <Image
                 src={imageLink(image.id, image.fileName, 256)}
                 isSelected={this.state.selectedIndex === index}
                 onChangeImage={() => this.handleChangeImage(index)}
                 key={image.id}
-                alt={this.props.item.title}
+                alt={this.props.product.title}
               />
-              ))
-            : null}
+            ))}
         </Gallery>
         <About>
-          {this.props.item.description}
+          {this.props.product.description}
         </About>
       </div>
     );

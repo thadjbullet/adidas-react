@@ -5,7 +5,7 @@ export default ({ price, currency }) => {
     case 'EURO':
       return `€${price}`;
     case 'RUB':
-      return `₽${price}`;
+      return `${price}₽`;
     default:
       return `${price}`;
   }

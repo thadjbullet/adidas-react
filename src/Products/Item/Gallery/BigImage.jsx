@@ -14,13 +14,17 @@ const BigImage = styled.img`
   `}
 `;
 
-export default ({ item, index }) => (
+export default ({ product, index }) => (
   <BigImage
     src={
-      item.images
-        ? imageLink(item.images[index].id, item.images[index].fileName, 1024)
+      product.images
+        ? imageLink(
+            product.images[index].id,
+            product.images[index].fileName,
+            1024,
+          )
         : null
     }
-    alt={item.title}
+    alt={product.title}
   />
 );

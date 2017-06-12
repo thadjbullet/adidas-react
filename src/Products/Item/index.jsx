@@ -13,7 +13,7 @@ const Main = styled.main`
   flex: 1;
 `;
 
-const Item = styled.div`
+const product = styled.div`
   flex: 1;
   padding: 0 30px;
 `;
@@ -35,7 +35,7 @@ const Container = styled.div`
 export default class Page extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { color: '#c5c5c5', item: {} };
+    this.state = { color: '#c5c5c5', product: {} };
     this.handleChangeColor = this.handleChangeColor.bind(this);
     this.fetchImages = this.fetchImages.bind(this);
     this.transformInputValues = this.transformInputValues.bind(this);
@@ -70,7 +70,7 @@ export default class Page extends React.Component {
         res
           .json()
           .then(json =>
-            this.setState({ item: this.transformInputValues(json) }),
+            this.setState({ product: this.transformInputValues(json) }),
           ),
       )
       .catch(err => console.log('request failed: ', err));
@@ -86,18 +86,18 @@ export default class Page extends React.Component {
   render() {
     return (
       <Main>
-        <Item>
+        <product>
           <Container>
-            <Title color={this.state.color}>{this.state.item.title}</Title>
+            <Title color={this.state.color}>{this.state.product.title}</Title>
             <Options
               onChangeColor={this.handleChangeColor}
               color={this.state.color}
-              sale={this.state.item.sale}
-              cost={this.state.item.price}
+              sale={this.state.product.sale}
+              cost={this.state.product.price}
             />
           </Container>
-          <Gallery item={this.state.item} />
-        </Item>
+          <Gallery product={this.state.product} />
+        </product>
         <BuyButton>Buy Now</BuyButton>
       </Main>
     );
