@@ -3,6 +3,7 @@ import styled from 'styled-components';
 
 import Logo from './Logo';
 import Nav from './Navigation';
+import Search from './Search';
 import media from '../media';
 
 const Aside = styled.aside`
@@ -50,6 +51,7 @@ export default class Sidebar extends React.Component {
             handleClick={this.handleClick}
             isMenuOpened={this.state.isMenuOpened}
           />
+          <Search />
           <Nav isMenuOpened={this.state.isMenuOpened} />
         </Container>
       </Aside>

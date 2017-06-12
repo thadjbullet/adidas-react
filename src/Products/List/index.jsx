@@ -2,10 +2,10 @@ import React from 'react';
 import styled from 'styled-components';
 import { Row, Col } from 'react-flexbox-grid';
 import get from '../../api';
+import { transformInputValues, imageLink } from '../../utilities';
 
 import Filter from './Filter';
 import Card from './Card';
-import imageLink from '../../imageLink';
 
 const Container = styled.main`
   flex-basis: 66.6667%;
@@ -22,6 +22,7 @@ export default class ProductsList extends React.Component {
     super(props);
     this.state = {
       products: [],
+      filter: [],
     };
     this.fetchData = this.fetchData.bind(this);
     this.transformInputValues = this.transformInputValues.bind(this);
@@ -41,7 +42,7 @@ export default class ProductsList extends React.Component {
       .then(res =>
         res.json().then(json =>
           this.setState({
-            products: json.items.map(item => this.transformInputValues(item)),
+            products: json.items.map(item => transformInputValues(item)),
           }),
         ),
       )
@@ -74,7 +75,11 @@ export default class ProductsList extends React.Component {
             {this.state.products.map(item => (
               <Col xs={12} sm={6} md={6} lg={4} key={item.id}>
                 <Card
-                  image={imageLink(item.images.id, item.images.fileName, 512)}
+                  image={imageLink(
+                    item.images[0].id,
+                    item.images[0].fileName,
+                    512,
+                  )}
                   to={`${this.props.match.url}/${item.id}`}
                   cost={item}
                   isSale={Math.random() > 0.7}

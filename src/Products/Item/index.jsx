@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import media from '../../media';
 import get from '../../api';
+import { transformInputValues } from '../../utilities';
 
 import Title from './Title';
 import Options from './Options';
@@ -69,9 +70,7 @@ export default class Page extends React.Component {
       .then(res =>
         res
           .json()
-          .then(json =>
-            this.setState({ product: this.transformInputValues(json) }),
-          ),
+          .then(json => this.setState({ product: transformInputValues(json) })),
       )
       .catch(err => console.log('request failed: ', err));
   }
@@ -93,7 +92,7 @@ export default class Page extends React.Component {
               onChangeColor={this.handleChangeColor}
               color={this.state.color}
               sale={this.state.product.sale}
-              cost={this.state.product.price}
+              cost={this.state.product}
             />
           </Container>
           <Gallery product={this.state.product} />

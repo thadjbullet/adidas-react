@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 
 import Label from '../../components/Label';
-import formatPrice from '../../formatPrice';
+import { formatPrice } from '../../utilities';
 
 const Card = styled.div`
   background: #f4f4f4;
