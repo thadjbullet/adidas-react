@@ -25,5 +25,5 @@ export const getSizes = (products) => {
   const sizes = Array.from(
     new Set(products.reduce((newArr, arr) => [...newArr, ...arr.sizes], [])),
   );
-  return sizes.sort();
+  return sizes.sort((a, b) => a - b);
 };
