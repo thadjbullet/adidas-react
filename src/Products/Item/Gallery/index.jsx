@@ -26,8 +26,8 @@ const About = styled.p`
 `;
 
 export default class Galleryproduct extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = { selectedIndex: 0 };
   }
 
