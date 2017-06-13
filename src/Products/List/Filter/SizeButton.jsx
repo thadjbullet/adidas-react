@@ -23,14 +23,14 @@ export default class SizeButton extends React.Component {
   }
 
   handleClick() {
-    this.props.isSelected(this.props.id);
+    this.props.selectId(this.props.id);
   }
 
   render() {
     return (
       <Button
         onClick={this.handleClick}
-        isSelected={this.props.isSelected}
+        selectId={this.props.selectId}
         id={this.props.id}
         selectedId={this.props.selectedId}
       >

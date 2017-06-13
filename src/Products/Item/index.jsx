@@ -8,7 +8,6 @@ import Title from './Title';
 import Options from './Options';
 import Gallery from './Gallery';
 import BuyButton from './BuyButton';
-import Loading from '../../components/Loading';
 
 const Main = styled.main`
   flex-basis: 66.66667%;
@@ -37,27 +36,23 @@ const Container = styled.div`
 export default class Page extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { color: '#c5c5c5', product: null };
+    this.state = { color: '#c5c5c5', product: { images: [''] } };
     this.handleChangeColor = this.handleChangeColor.bind(this);
     this.fetchData = this.fetchData.bind(this);
   }
 
   componentDidMount() {
-    this.fetchData(this.props.match.url);
+    this.fetchData(this.props.match);
   }
 
   componentWillReceiveProps(props) {
-    this.fetchData(props.match.url);
+    this.fetchData(props.match);
   }
 
   /* eslint-disable no-console*/
-  fetchData(props) {
-    get(props)
-      .then(res =>
-        res
-          .json()
-          .then(json => this.setState({ product: transformInputValues(json) })),
-      )
+  fetchData({ url }) {
+    get(url)
+      .then(json => this.setState({ product: transformInputValues(json) }))
       .catch(err => console.log('request failed: ', err));
   }
   /* eslint-enable no-console*/
@@ -71,8 +66,8 @@ export default class Page extends React.Component {
   render() {
     return (
       <Main>
-        {this.state.product
-          ? <Product>
+        {
+          <Product>
             <Container>
               <Title color={this.state.color}>
                 {this.state.product.title}
@@ -86,7 +81,7 @@ export default class Page extends React.Component {
             </Container>
             <Gallery product={this.state.product} />
           </Product>
-          : <Loading />}
+        }
         <BuyButton>Buy Now</BuyButton>
       </Main>
     );

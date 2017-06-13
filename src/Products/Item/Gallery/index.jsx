@@ -45,16 +45,15 @@ export default class Galleryproduct extends React.Component {
           index={this.state.selectedIndex}
         />
         <Gallery>
-          {this.props.product.images &&
-            this.props.product.images.map((image, index) => (
-              <Image
-                src={imageLink(image.id, image.fileName, 256)}
-                isSelected={this.state.selectedIndex === index}
-                onChangeImage={() => this.handleChangeImage(index)}
-                key={image.id}
-                alt={this.props.product.title}
-              />
-            ))}
+          {this.props.product.images.map((image, index) => (
+            <Image
+              src={imageLink(image.id, image.fileName, 256)}
+              isSelected={this.state.selectedIndex === index}
+              onChangeImage={() => this.handleChangeImage(index)}
+              key={image.id}
+              alt={this.props.product.title}
+            />
+          ))}
         </Gallery>
         <About>
           {this.props.product.description}

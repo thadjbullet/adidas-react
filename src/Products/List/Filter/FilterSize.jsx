@@ -24,17 +24,17 @@ export default class FilterSize extends React.Component {
   constructor(props) {
     super(props);
     this.state = { id: null };
-    this.isSelected = this.isSelected.bind(this);
+    this.selectId = this.selectId.bind(this);
   }
 
-  isSelected(id) {
+  selectId(id) {
     /* If click on same element - remove selection */
     if (this.state.id === id) {
       this.setState({ id: null });
-      this.props.handleFilter(null);
+      this.props.handleChooseFilter(null);
     } else {
       this.setState({ id });
-      this.props.handleFilter(id);
+      this.props.handleChooseFilter(id);
     }
   }
 
@@ -45,7 +45,7 @@ export default class FilterSize extends React.Component {
         {this.props.sizes &&
           this.props.sizes.map(item => (
             <SizeButton
-              isSelected={this.isSelected}
+              selectId={this.selectId}
               id={item}
               selectedId={this.state.id}
               key={item}

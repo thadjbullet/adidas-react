@@ -16,14 +16,11 @@ const BigImage = styled.img`
 
 export default ({ product, index }) => (
   <BigImage
-    src={
-      product.images &&
-        imageLink(
-          product.images[index].id,
-          product.images[index].fileName,
-          1024,
-        )
-    }
+    src={imageLink(
+      product.images[index].id,
+      product.images[index].fileName,
+      1024,
+    )}
     alt={product.title}
   />
 );
