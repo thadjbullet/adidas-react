@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import media from '../../media';
-import { formatPrice } from '../../utilities';
+import { formatPrice } from '../utilities';
 
 import Button from './ColorButton';
 import Label from '../../components/Label';

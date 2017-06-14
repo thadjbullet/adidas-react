@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import media from '../../media';
 import { get } from '../../api';
-import { transformInputValues } from '../../utilities';
+import { transformInputValues } from '../utilities';
 
 import Title from './Title';
 import Options from './Options';

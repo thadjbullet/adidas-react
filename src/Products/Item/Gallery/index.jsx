@@ -5,7 +5,7 @@ import styled from 'styled-components';
 
 import Image from './Image';
 import BigImage from './BigImage';
-import { imageLink } from '../../../utilities';
+import { imageLink } from '../../utilities';
 
 const Gallery = styled.div`
   align-items: center;

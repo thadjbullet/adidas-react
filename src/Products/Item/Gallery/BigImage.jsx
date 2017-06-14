@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 import media from '../../../media';
-import { imageLink } from '../../../utilities';
+import { imageLink } from '../../utilities';
 
 const BigImage = styled.img`
   display: block;
