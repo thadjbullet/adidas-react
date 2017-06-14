@@ -23,7 +23,7 @@ export default class ProductsList extends React.Component {
     super(props);
     this.state = {
       products: [{ images: [''] }],
-      filter: null,
+      filter: '',
       sizes: [],
     };
     this.fetchData = this.fetchData.bind(this);
@@ -37,7 +37,7 @@ export default class ProductsList extends React.Component {
 
   componentWillReceiveProps(newProps) {
     this.fetchData(newProps.match);
-    this.setState({ filter: null });
+    this.setState({ filter: '' });
   }
 
   handleChooseFilter(filter) {
@@ -47,9 +47,10 @@ export default class ProductsList extends React.Component {
   }
 
   filterProducts(products) {
-    return this.state.filter
-      ? products.filter(item => item.sizes.includes(this.state.filter))
-      : products;
+    if (this.state.filter) {
+      return products.filter(item => item.sizes.includes(this.state.filter));
+    }
+    return products;
   }
 
   /* eslint-disable no-console*/
