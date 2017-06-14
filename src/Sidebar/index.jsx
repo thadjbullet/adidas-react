@@ -2,8 +2,9 @@ import React from 'react';
 import styled from 'styled-components';
 
 import Logo from './Logo';
-import Search from './Search';
 import Nav from './Navigation';
+import Search from './Search';
+import Copyrights from './Copyrights';
 import media from '../media';
 
 const Aside = styled.aside`
@@ -17,14 +18,17 @@ const Aside = styled.aside`
   max-width: 414px;
 
   ${media.sm('max')`
+    flex-basis: auto;
     justify-content: center;
     max-width: 100%;
     min-height: 64px;
   `}
 `;
+
 const Container = styled.div`
   margin: 0;
   padding: 0;
+  position: relative;
   width: 100%;
 `;
 
@@ -51,6 +55,7 @@ export default class Sidebar extends React.Component {
           />
           <Search />
           <Nav isMenuOpened={this.state.isMenuOpened} />
+          <Copyrights />
         </Container>
       </Aside>
     );

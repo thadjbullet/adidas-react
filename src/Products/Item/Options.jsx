@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import media from '../../media';
+import { formatPrice } from '../utilities';
 
 import Button from './ColorButton';
 import Label from '../../components/Label';
@@ -66,8 +67,8 @@ export default props => (
         <Button color="#4a4a4a" onChangeColor={props.onChangeColor} />
         <Button color="#e0e0e0" onChangeColor={props.onChangeColor} />
       </Wrapper>
-      <SaleLabel color={props.color}>Sale</SaleLabel>
+      {props.sale && <SaleLabel color={props.color}>Sale</SaleLabel>}
     </ColorFilter>
-    <Cost color={props.color}>170$</Cost>
+    <Cost color={props.color}>{formatPrice(props.cost)}</Cost>
   </Container>
 );

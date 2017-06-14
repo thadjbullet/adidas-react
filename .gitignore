@@ -12,8 +12,11 @@
 # vscode
 /.vscode
 
-#Idea
+# Idea
 /.idea
+
+# SonarLint
+/.sonarlint
 
 # misc
 .DS_Store

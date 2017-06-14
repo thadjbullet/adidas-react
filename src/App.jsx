@@ -13,6 +13,7 @@ import Sidebar from './Sidebar';
 import media from './media';
 import ProductList from './Products/List';
 import ProductItem from './Products/Item';
+import Copyright from './Copyright';
 
 const View = styled.div`
   display: flex;
@@ -29,13 +30,18 @@ export default () => (
     <View>
       <Sidebar />
       <Switch>
-        <Redirect exact from="/" to="/products/football/shoes" />
+        <Redirect exact from="/" to="/products/football/cleats" />
         <Route
           exact
           path="/products/:category/:section"
           component={ProductList}
         />
-        <Route exact path="/products/:id" component={ProductItem} />
+        <Route
+          exact
+          path="/products/:category/:section/:id"
+          component={ProductItem}
+        />
+        <Route exact path="/copyright" component={Copyright} />
       </Switch>
     </View>
   </Router>

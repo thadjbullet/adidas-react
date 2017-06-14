@@ -4,22 +4,15 @@ import React from 'react';
 import styled from 'styled-components';
 
 import Image from './Image';
-
-const Container = styled.div`
-  display: flex;
-`;
-
-const BigImage = styled.img`
-  display: block;
-  margin: 0 auto;
-  max-height: 500px;
-`;
+import BigImage from './BigImage';
+import { imageLink } from '../../utilities';
 
 const Gallery = styled.div`
   align-items: center;
   display: flex;
+  flex-wrap: wrap;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: center;
 `;
 
 const About = styled.p`
@@ -32,21 +25,9 @@ const About = styled.p`
   padding: 0;
 `;
 
-const CompanyName = styled.span`
-  color: #6e6e6e;
-`;
-
-const images = [
-  require('./shoe1.png'),
-  require('./shoe2.png'),
-  require('./shoe3.png'),
-  require('./shoe4.png'),
-  require('./shoe5.png'),
-];
-
-export default class GalleryItem extends React.Component {
-  constructor() {
-    super();
+export default class Galleryproduct extends React.Component {
+  constructor(props) {
+    super(props);
     this.state = { selectedIndex: 0 };
   }
 
@@ -59,23 +40,23 @@ export default class GalleryItem extends React.Component {
   render() {
     return (
       <div>
-        <Container>
-          <BigImage src={images[this.state.selectedIndex]} />
-        </Container>
+        <BigImage
+          product={this.props.product}
+          index={this.state.selectedIndex}
+        />
         <Gallery>
-          {images.map((image, index) => (
+          {this.props.product.images.map((image, index) => (
             <Image
-              src={image}
+              src={imageLink(image.id, image.fileName, 256)}
               isSelected={this.state.selectedIndex === index}
               onChangeImage={() => this.handleChangeImage(index)}
+              key={image.id}
+              alt={this.props.product.title}
             />
           ))}
         </Gallery>
         <About>
-          <CompanyName>Adidas</CompanyName>
-          {' '}
-          is a German multinational corporation, headquartered in Herzogenaurach,
-          Germany, that designs and manufactures shoes, clothing and accessories.
+          {this.props.product.description}
         </About>
       </div>
     );

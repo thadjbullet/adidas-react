@@ -2,7 +2,7 @@
 
 Clone or download repository
 
-Install dependsies
+Install dependcies
 `yarn install`
 
 Development

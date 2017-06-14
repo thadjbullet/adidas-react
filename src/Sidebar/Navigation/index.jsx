@@ -55,36 +55,36 @@ const LinkWithActive = ({ to, children }) => (
 export default props => (
   <Nav isMenuOpened={props.isMenuOpened}>
     <Menu title="football">
-      <LinkWithActive to="/products/football/shoes">
-        shoes
+      <LinkWithActive to="/products/football/cleats">
+        cleats
       </LinkWithActive>
-      <LinkWithActive to="/products/football/clothing">
-        clothing
+      <LinkWithActive to="/products/football/apparel">
+        apparel
       </LinkWithActive>
-      <LinkWithActive to="/products/football/accesories">
-        accesories
+      <LinkWithActive to="/products/football/accessories">
+        accessories
       </LinkWithActive>
     </Menu>
     <Menu title="running">
       <LinkWithActive to="/products/running/shoes">
         shoes
       </LinkWithActive>
-      <LinkWithActive to="/products/running/clothing">
-        clothing
+      <LinkWithActive to="/products/running/apparel">
+        apparel
       </LinkWithActive>
-      <LinkWithActive to="/products/running/accesories">
-        accesories
+      <LinkWithActive to="/products/running/accessories">
+        accessories
       </LinkWithActive>
     </Menu>
     <Menu title="basketball">
       <LinkWithActive to="/products/basketball/shoes">
         shoes
       </LinkWithActive>
-      <LinkWithActive to="/products/basketball/clothing">
-        clothing
+      <LinkWithActive to="/products/basketball/apparel">
+        apparel
       </LinkWithActive>
-      <LinkWithActive to="/products/basketball/accesories">
-        accesories
+      <LinkWithActive to="/products/basketball/accessories">
+        accessories
       </LinkWithActive>
     </Menu>
   </Nav>

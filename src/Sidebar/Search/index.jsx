@@ -7,7 +7,6 @@ import media from '../../media';
 
 const Form = styled.form`
   padding: 0;
-
   ${media.sm('max')`
   display: none;
   `}
@@ -27,11 +26,9 @@ const Input = styled.input`
   font-size: 24px;
   padding: 10px 14px 10px 40px;
   width: 100%;
-
   &:hover {
     border-bottom: 4px solid #fff;
   }
-
   &:focus {
     border-bottom: 4px solid #fff;
   }
