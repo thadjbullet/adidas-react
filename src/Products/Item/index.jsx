@@ -1,3 +1,5 @@
+/* @flow */
+
 import React from 'react';
 import styled from 'styled-components';
 import media from '../../media';
@@ -16,6 +18,7 @@ const Main = styled.main`
 
 const Product = styled.div`
   flex: 1;
+
   padding: 0 30px;
 `;
 
@@ -25,39 +28,53 @@ const Container = styled.div`
   display: flex;
   justify-content: space-between;
   max-height: 0;
-
   ${media.sm('max')`
     flex-direction: column;
     max-height: 100%;
     padding: 30px 0 0;
-  `}
+  `};
 `;
 
-export default class Page extends React.Component {
-  constructor(props) {
+type Props = {
+  match: {
+    url: string,
+  },
+};
+
+type State = {
+  color: string,
+  product: {
+    images: Array<Object>,
+    title: string,
+    sale: boolean,
+  },
+};
+
+export default class Page extends React.Component<void, Props, State> {
+  constructor(props: Props) {
     super(props);
-    this.state = { color: '#c5c5c5', product: { images: [''] } };
+    this.state = { color: '#c5c5c5', product: { images: [{}], sale: false, title: '' } };
     this.handleChangeColor = this.handleChangeColor.bind(this);
     this.fetchData = this.fetchData.bind(this);
   }
 
   componentDidMount() {
-    this.fetchData(this.props.match);
+    this.fetchData(this.props.match.url);
   }
 
-  componentWillReceiveProps(props) {
-    this.fetchData(props.match);
+  componentWillReceiveProps(props: { match: { url: string } }) {
+    this.fetchData(props.match.url);
   }
 
   /* eslint-disable no-console*/
-  fetchData({ url }) {
+  fetchData(url: string) {
     get(url)
-      .then(json => this.setState({ product: transformInputValues(json) }))
-      .catch(err => console.log('request failed: ', err));
+      .then((json: Object) => this.setState({ product: transformInputValues(json) }))
+      .catch((err: Error) => console.log('request failed: ', err));
   }
   /* eslint-enable no-console*/
 
-  handleChangeColor(color) {
+  handleChangeColor(color: string) {
     this.setState({
       color,
     });

@@ -1,3 +1,5 @@
+/* @flow */
+
 import React from 'react';
 import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
@@ -16,14 +18,13 @@ const Card = styled.div`
   flex: 1 0 auto;
 `;
 
-const Img = styled.img`
-  width: 100%;
-`;
+const Img = styled.img`width: 100%;`;
 
 const Link = styled(NavLink)`
   background: #fff;
-  background-image: ${props => (props.activeClassName ? 'linear-gradient(107deg, #0c09bf, #966dd8)' : '')};
-  color: ${props => (props.activeClassName ? '#fff' : '#111')};
+  background-image: ${(props: Object) =>
+    (props.activeClassName ? 'linear-gradient(107deg, #0c09bf, #966dd8)' : '')};
+  color: ${(props: Object) => (props.activeClassName ? '#fff' : '#111')};
   display: block;
   font-family: 'AvenirBold';
   font-size: 30px;
@@ -33,7 +34,10 @@ const Link = styled(NavLink)`
   width: 100%;
 
   &:hover {
-    background-image: ${props => (props.activeClassName ? 'linear-gradient(180deg, #0c09bf, #966dd8)' : 'linear-gradient(107deg, #0c09bf, #966dd8)')};
+    background-image: ${(props: Object) =>
+    (props.activeClassName
+      ? 'linear-gradient(180deg, #0c09bf, #966dd8)'
+      : 'linear-gradient(107deg, #0c09bf, #966dd8)')};
     color: #fff;
   }
 `;
@@ -44,12 +48,21 @@ const SaleLabel = styled(Label)`
   right: 17px;
 `;
 
-export default ({ image, cost, isSale, to }) => (
-  <Card>
+export default ({
+  image,
+  cost,
+  isSale,
+  to,
+  }: {
+  image: string,
+  cost: Object,
+  isSale: boolean,
+  to: string,
+}) =>
+  (<Card>
     <Img src={image} />
     <Link to={to} activeClassName={isSale ? 'active' : ''}>
       {formatPrice(cost)}
     </Link>
     {isSale && <SaleLabel>Sale</SaleLabel>}
-  </Card>
-);
+  </Card>);

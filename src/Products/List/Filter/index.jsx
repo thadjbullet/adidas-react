@@ -1,3 +1,5 @@
+/* @ flow */
+
 import React from 'react';
 import styled from 'styled-components';
 
@@ -6,7 +8,7 @@ import Icon from './Icon';
 import Gender from './FilterGender';
 import Size from './FilterSize';
 
-const Header = styled.header`
+const Header: StyledComponent = styled.header`
   border-bottom: 4px solid #e7e7e7;
   align-items: center;
   display: flex;
@@ -16,19 +18,22 @@ const Header = styled.header`
     align-items: flex-start;
     flex-direction: column;
     padding: 15px 0 15px 20px;
-  `}
-
-  ${media.sm('max')`
+  `} ${media.sm('max')`
     align-items: flex-start;
     flex-direction: column;
     padding: 15px 0 15px 20px;
-  `}
+  `};
 `;
 
-export default ({ sizes, handleChooseFilter }) => (
-  <Header>
+export default ({
+  sizes,
+  handleChooseFilter,
+  }: {
+  sizes: Array<string>,
+  handleChooseFilter: Function,
+}) =>
+  (<Header>
     <Icon />
     <Gender />
     <Size sizes={sizes} handleChooseFilter={handleChooseFilter} />
-  </Header>
-);
+  </Header>);

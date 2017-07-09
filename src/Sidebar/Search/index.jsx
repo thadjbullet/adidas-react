@@ -1,3 +1,4 @@
+/* @flow */
 /* eslint-disable global-require */
 
 import React from 'react';
@@ -7,14 +8,13 @@ import media from '../../media';
 
 const Form = styled.form`
   padding: 0;
+
   ${media.sm('max')`
   display: none;
-  `}
+  `};
 `;
 
-const Label = styled.label`
-  display: none;
-`;
+const Label = styled.label`display: none;`;
 
 const Input = styled.input`
   background: url(${require('./group.png')}) #0e0e0e no-repeat 4px center;
@@ -26,6 +26,7 @@ const Input = styled.input`
   font-size: 24px;
   padding: 10px 14px 10px 40px;
   width: 100%;
+
   &:hover {
     border-bottom: 4px solid #fff;
   }
@@ -34,9 +35,8 @@ const Input = styled.input`
   }
 `;
 
-export default () => (
-  <Form>
+export default () =>
+  (<Form>
     <Label />
     <Input />
-  </Form>
-);
+  </Form>);

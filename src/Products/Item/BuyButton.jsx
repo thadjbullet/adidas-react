@@ -1,3 +1,5 @@
+/* @flow */
+
 import styled from 'styled-components';
 import media from '../../media';
 
@@ -22,5 +24,5 @@ export default styled.button`
 
   ${media.sm('max')`
     width: 100%;
-  `}
+  `};
 `;

@@ -1,8 +1,10 @@
+/* @flow */
+
 import React from 'react';
 import styled from 'styled-components';
 
 const Button = styled.button`
-  background-color: ${props => props.color};
+  background-color: ${(props: { color: string }) => props.color};
   border: none;
   width: 18px;
   height: 18px;
@@ -16,9 +18,5 @@ const Button = styled.button`
   }
 `;
 
-export default props => (
-  <Button
-    color={props.color}
-    onClick={() => props.onChangeColor(props.color)}
-  />
-);
+export default (props: { color: string, onChangeColor: Function }) =>
+  <Button color={props.color} onClick={() => props.onChangeColor(props.color)} />;

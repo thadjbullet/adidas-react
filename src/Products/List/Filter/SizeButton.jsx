@@ -1,3 +1,5 @@
+/* @flow */
+
 import React from 'react';
 import styled from 'styled-components';
 
@@ -7,7 +9,8 @@ const Button = styled.button`
   cursor: pointer;
   font-family: 'AvenirBold';
   font-size: 24px;
-  color: ${props => (props.id === props.selectedId ? '#4d42f8' : '#d6d6d6')};
+  color: ${(props: { id: Number, selectedId: Number }) =>
+    (props.id === props.selectedId ? '#4d42f8' : '#d6d6d6')};
   padding: 0 4px;
   text-transform: uppercase;
 
@@ -16,12 +19,18 @@ const Button = styled.button`
   }
 `;
 
-export default class SizeButton extends React.Component {
-  constructor(props) {
+type Props = {
+  selectId: Function,
+  id: Number,
+  selectedId: Number,
+  children: string,
+};
+
+export default class SizeButton extends React.Component<any, Props, any> {
+  constructor(props: Props) {
     super(props);
     this.handleClick = this.handleClick.bind(this);
   }
-
   handleClick() {
     this.props.selectId(this.props.id);
   }

@@ -1,3 +1,5 @@
+/* @flow */
+
 import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
@@ -12,7 +14,7 @@ const Container = styled.div`
 
   ${media.sm('max')`
     z-index: -1;
-  `}
+  `};
 `;
 
 const Copyright = styled(Link)`
@@ -22,8 +24,7 @@ const Copyright = styled(Link)`
   text-decoration: none;
 `;
 
-export default () => (
-  <Container>
+export default () =>
+  (<Container>
     <Copyright to="/copyright">©Copyrights</Copyright>
-  </Container>
-);
+  </Container>);

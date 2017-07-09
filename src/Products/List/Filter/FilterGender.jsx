@@ -1,3 +1,5 @@
+/* @flow */
+
 import React from 'react';
 import styled from 'styled-components';
 
@@ -5,16 +7,12 @@ import media from '../../../media';
 
 const Container = styled.div`
   background: #fff;
-  
+
   ${media.xs('min')`
     padding: 0 30px;
-  `}
-
-  ${media.sm('max')`
+  `} ${media.sm('max')`
     padding: 10px 0;
-  `}
-
-
+  `};
 `;
 
 const Button = styled.button`
@@ -23,7 +21,7 @@ const Button = styled.button`
   cursor: pointer;
   font-family: 'AvenirBold';
   font-size: 24px;
-  color: ${props => (props.select ? '#4d42f8' : '#d6d6d6')};
+  color: ${(props: { select: boolean }) => (props.select ? '#4d42f8' : '#d6d6d6')};
   margin: 0 5px 0 0;
   text-transform: uppercase;
 
@@ -32,9 +30,8 @@ const Button = styled.button`
   }
 `;
 
-export default () => (
-  <Container>
+export default () =>
+  (<Container>
     <Button select>Man</Button>
     <Button>Woman</Button>
-  </Container>
-);
+  </Container>);

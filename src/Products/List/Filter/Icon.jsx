@@ -1,3 +1,5 @@
+/* @flow */
+
 import React from 'react';
 import styled from 'styled-components';
 
@@ -15,15 +17,14 @@ const Div = styled.div`
     align-items: center;
     height: 55px;
     width: 55px;
-  `}
+  `};
 `;
 
 const Img = styled.img`
   width: 40px;
   height: 33px;
 `;
-export default () => (
-  <Div>
+export default () =>
+  (<Div>
     <Img src={logo} />
-  </Div>
-);
+  </Div>);

@@ -1,3 +1,5 @@
+/* @flow */
+
 import { css } from 'styled-components';
 
 const s = {
@@ -17,12 +19,13 @@ const s = {
  * @param {string} prefix - min | max prefix size
  * @return {object} css property
  *
- * ${media.sm('min')`diplsay: block`}
+ * ${media.sm('min')`display: block`}
  */
+
 const media = Object.keys(s.media).reduce((opt, point) => {
   const query = s.media[point];
   const cssBody = opt;
-  cssBody[point] = prefix => (...args) => css`
+  cssBody[point] = (prefix: string) => (...args) => css`
       @media (${prefix}-width: ${query}) {
         ${css(...args)}
       }

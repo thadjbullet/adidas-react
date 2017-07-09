@@ -1,3 +1,5 @@
+/* @flow */
+
 import React from 'react';
 import styled from 'styled-components';
 
@@ -22,7 +24,7 @@ const Aside = styled.aside`
     justify-content: center;
     max-width: 100%;
     min-height: 64px;
-  `}
+  `};
 `;
 
 const Container = styled.div`
@@ -32,15 +34,19 @@ const Container = styled.div`
   width: 100%;
 `;
 
-export default class Sidebar extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { isMenuOpened: false };
+type State = { isMenuOpened: boolean };
+
+export default class Sidebar extends React.Component<any, any, State> {
+  constructor() {
+    super();
+    this.state = {
+      isMenuOpened: false,
+    };
     this.handleClick = this.handleClick.bind(this);
   }
 
-  handleClick() {
-    this.setState(state => ({
+  handleClick(): void {
+    this.setState((state: { isMenuOpened: boolean }) => ({
       isMenuOpened: !state.isMenuOpened,
     }));
   }
@@ -49,10 +55,7 @@ export default class Sidebar extends React.Component {
     return (
       <Aside>
         <Container>
-          <Logo
-            handleClick={this.handleClick}
-            isMenuOpened={this.state.isMenuOpened}
-          />
+          <Logo handleClick={this.handleClick} isMenuOpened={this.state.isMenuOpened} />
           <Search />
           <Nav isMenuOpened={this.state.isMenuOpened} />
           <Copyrights />

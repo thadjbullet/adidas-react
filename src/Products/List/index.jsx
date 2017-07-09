@@ -1,3 +1,6 @@
+/* @flow */
+/* eslint-disable no-console, react/no-unused-prop-types*/
+
 import React from 'react';
 import styled from 'styled-components';
 import { Row, Col } from 'react-flexbox-grid';
@@ -18,53 +21,69 @@ const Content = styled.div`
   position: relative;
 `;
 
-export default class ProductsList extends React.Component {
-  constructor(props) {
+type Props = {
+  match: {
+    url: string,
+  },
+};
+
+type State = {
+  products: Array<Object>,
+  filter: string,
+  sizes: Array<string>,
+  id: string,
+};
+
+export default class ProductsList extends React.Component<any, Props, State> {
+  constructor(props: Props) {
     super(props);
     this.state = {
-      products: [{ images: [''] }],
+      products: [{ images: [{}] }],
       filter: '',
       sizes: [],
+      id: '',
     };
+
     this.fetchData = this.fetchData.bind(this);
     this.handleChooseFilter = this.handleChooseFilter.bind(this);
     this.filterProducts = this.filterProducts.bind(this);
   }
 
   componentDidMount() {
-    this.fetchData(this.props.match);
+    this.fetchData((this.props.match: Object));
+    console.log(this.props.match);
   }
 
-  componentWillReceiveProps(newProps) {
+  componentWillReceiveProps(newProps: { match: Object }) {
     this.fetchData(newProps.match);
     this.setState({ filter: '' });
   }
 
-  handleChooseFilter(filter) {
+  handleChooseFilter(filter: string) {
     this.setState({
       filter,
     });
   }
 
-  filterProducts(products) {
+  filterProducts(products: Array<Object>): Array<Object> {
     if (this.state.filter) {
-      return products.filter(item => item.sizes.includes(this.state.filter));
+      return products.filter((item: { sizes: Array<string> }) =>
+        item.sizes.includes(this.state.filter),
+      );
     }
     return products;
   }
 
-  /* eslint-disable no-console*/
-  fetchData({ url }) {
+  fetchData({ url }: { url: string }) {
     get(url)
-      .then(json =>
+      .then((json: { items: Object }) =>
         this.setState({
-          products: json.items.map(item => transformInputValues(item)),
-          sizes: getSizes(json.items.map(({ sizes }) => ({ sizes }))),
+          products: json.items.map((item: Object) => transformInputValues(item)),
+          sizes: getSizes(json.items.map(({ sizes }: { sizes: Array<string> }) => ({ sizes }))),
         }),
       )
-      .catch(error => console.error('request failed: ', error));
+      .catch((error: Error) => console.error('request failed: ', error));
   }
-  /* eslint-enable no-console*/
 
   render() {
     return (
@@ -76,20 +95,18 @@ export default class ProductsList extends React.Component {
         />
         <Content>
           <Row>
-            {this.filterProducts(this.state.products).map(item => (
-              <Col xs={12} sm={6} md={6} lg={4} key={item.id}>
+            {this.filterProducts(
+              this.state.products,
+            ).map((item: { id: string, images: Array<{ id: string, fileName: string }> }) =>
+              (<Col xs={12} sm={6} md={6} lg={4} key={item.id}>
                 <Card
-                  image={imageLink(
-                    item.images[0].id,
-                    item.images[0].fileName,
-                    512,
-                  )}
+                  image={imageLink(item.images[0].id, item.images[0].fileName, '512')}
                   to={`${this.props.match.url}/${item.id}`}
                   cost={item}
                   isSale={Math.random() > 0.7}
                 />
-              </Col>
-            ))}
+              </Col>),
+            )}
           </Row>
         </Content>
       </Container>
