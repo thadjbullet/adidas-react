@@ -53,7 +53,6 @@ export default class ProductsList extends React.Component<any, Props, State> {
 
   componentDidMount() {
     this.fetchData((this.props.match: Object));
-    console.log(this.props.match);
   }
 
   componentWillReceiveProps(newProps: { match: Object }) {
