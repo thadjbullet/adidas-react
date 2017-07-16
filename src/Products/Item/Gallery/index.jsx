@@ -1,5 +1,6 @@
+/* @flow `*/
 /* eslint-disable global-require */
-/* @flow */
+/* global state */
 
 import React from 'react';
 import styled from 'styled-components';
@@ -38,11 +39,12 @@ type State = {
   selectedIndex: number,
 };
 
-export default class Galleryproduct extends React.Component<any, Props, State> {
+export default class GalleryProduct extends React.Component<any, Props, State> {
   constructor(props: Props) {
     super(props);
     this.state = { selectedIndex: 0 };
   }
+  state: State;
 
   handleChangeImage(selectedIndex: number) {
     this.setState({

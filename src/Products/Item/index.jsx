@@ -1,4 +1,5 @@
 /* @flow */
+/* global state, fetchData, handleChangeColor */
 
 import React from 'react';
 import styled from 'styled-components';
@@ -53,10 +54,18 @@ type State = {
 export default class Page extends React.Component<void, Props, State> {
   constructor(props: Props) {
     super(props);
-    this.state = { color: '#c5c5c5', product: { images: [{}], sale: false, title: '' } };
+    this.state = {
+      color: '#c5c5c5',
+      product: {
+        images: [{}],
+        sale: false,
+        title: '',
+      },
+    };
     this.handleChangeColor = this.handleChangeColor.bind(this);
     this.fetchData = this.fetchData.bind(this);
   }
+  state: State;
 
   componentDidMount() {
     this.fetchData(this.props.match.url);
@@ -69,9 +78,14 @@ export default class Page extends React.Component<void, Props, State> {
   /* eslint-disable no-console*/
   fetchData(url: string) {
     get(url)
-      .then((json: Object) => this.setState({ product: transformInputValues(json) }))
+      .then((json: Object) =>
+        this.setState({
+          product: transformInputValues(json),
+        }),
+      )
       .catch((err: Error) => console.log('request failed: ', err));
   }
+  fetchData: Function;
   /* eslint-enable no-console*/
 
   handleChangeColor(color: string) {
@@ -79,6 +93,7 @@ export default class Page extends React.Component<void, Props, State> {
       color,
     });
   }
+  handleChangeColor: Function;
 
   render() {
     return (

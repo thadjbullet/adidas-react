@@ -1,5 +1,6 @@
 /* @flow */
-/* eslint-disable no-console, react/no-unused-prop-types*/
+/* eslint-disable no-console, react/no-unused-prop-types */
+/* global state, fetchData, handleChooseFilter, filterProducts */
 
 import React from 'react';
 import styled from 'styled-components';
@@ -30,7 +31,7 @@ type Props = {
 type State = {
   products: Array<Object>,
   filter: string,
-  sizes: Array<string>,
+  sizes: Array<Object>,
   id: string,
 };
 
@@ -48,6 +49,7 @@ export default class ProductsList extends React.Component<any, Props, State> {
     this.handleChooseFilter = this.handleChooseFilter.bind(this);
     this.filterProducts = this.filterProducts.bind(this);
   }
+  state: State;
 
   componentDidMount() {
     this.fetchData((this.props.match: Object));
@@ -64,6 +66,7 @@ export default class ProductsList extends React.Component<any, Props, State> {
       filter,
     });
   }
+  handleChooseFilter: Function;
 
   filterProducts(products: Array<Object>): Array<Object> {
     if (this.state.filter) {
@@ -73,17 +76,23 @@ export default class ProductsList extends React.Component<any, Props, State> {
     }
     return products;
   }
+  filterProducts: Function;
 
   fetchData({ url }: { url: string }) {
     get(url)
-      .then((json: { items: Object }) =>
+      .then((json: { items: Array<Object> }) =>
         this.setState({
           products: json.items.map((item: Object) => transformInputValues(item)),
-          sizes: getSizes(json.items.map(({ sizes }: { sizes: Array<string> }) => ({ sizes }))),
+          sizes: getSizes(
+            json.items.map(({ sizes }: { sizes: Array<string> }) => ({
+              sizes,
+            })),
+          ),
         }),
       )
       .catch((error: Error) => console.error('request failed: ', error));
   }
+  fetchData: Function;
 
   render() {
     return (

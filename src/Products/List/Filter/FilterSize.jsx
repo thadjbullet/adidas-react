@@ -1,4 +1,5 @@
 /* @flow */
+/* global state, selectId */
 
 import React from 'react';
 import styled from 'styled-components';
@@ -27,12 +28,17 @@ type Props = {
   sizes: Array<Object>,
 };
 
-export default class FilterSize extends React.Component<any, Props, any> {
+type State = {
+  id: string,
+};
+
+export default class FilterSize extends React.Component<any, Props, State> {
   constructor(props: Props) {
     super(props);
     this.state = { id: '' };
     this.selectId = this.selectId.bind(this);
   }
+  state: State;
 
   selectId(id: string) {
     /* If click on same element - remove selection */
@@ -44,6 +50,7 @@ export default class FilterSize extends React.Component<any, Props, any> {
       this.props.handleChooseFilter(id);
     }
   }
+  selectId: Function;
 
   render() {
     return (

@@ -25,7 +25,7 @@ const s = {
 const media = Object.keys(s.media).reduce((opt, point) => {
   const query = s.media[point];
   const cssBody = opt;
-  cssBody[point] = (prefix: string) => (...args) => css`
+  cssBody[point] = (prefix: string) => (...args: Array<any>) => css`
       @media (${prefix}-width: ${query}) {
         ${css(...args)}
       }

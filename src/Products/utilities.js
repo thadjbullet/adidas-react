@@ -29,11 +29,9 @@ export const formatPrice = ({ price, currency }: { price: string, currency: stri
 };
 export const imageLink = (id: string, fileName: string, height: string) =>
   `http://demandware.edgesuite.net/sits_pod20-adidas/dw/image/v2/aaqx_prd/on/demandware.static/-/Sites-adidas-products/en_US/${id}/zoom/${fileName}?sh=${height}`;
-export const getSizes = (products: Array<string>): Array<string> => {
-  const sizes: Array<string> = Array.from(
-    new Set(
-      products.reduce((newArr: Array<string>, arr: Array<string>) => [...newArr, ...arr.sizes], []),
-    ),
+export const getSizes = (products: Array<Object>): Array<Object> => {
+  const sizes: Array<Object> = Array.from(
+    new Set(products.reduce((newArr: Array<any>, arr: Object) => [...newArr, ...arr.sizes], [])),
   );
   return sizes.sort((a: any, b: any) => a - b);
 };

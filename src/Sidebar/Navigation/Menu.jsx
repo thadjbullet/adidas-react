@@ -1,4 +1,5 @@
 /* @flow */
+/* global state, handleClick */
 
 import React from 'react';
 import styled from 'styled-components';
@@ -55,18 +56,24 @@ type Props = {
   title: string,
 };
 
-class Menu extends React.Component<any, Props, any> {
+type State = {
+  isOpen: boolean,
+};
+
+class Menu extends React.Component<any, Props, State> {
   constructor(props: { children: string, title: string }) {
     super(props);
     this.state = { isOpen: false };
     this.handleClick = this.handleClick.bind(this);
   }
+  state: State;
 
-  handleClick(): void {
+  handleClick() {
     this.setState((state: { isOpen: boolean }) => ({
       isOpen: !state.isOpen,
     }));
   }
+  handleClick: Function;
 
   render() {
     return (

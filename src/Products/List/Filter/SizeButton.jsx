@@ -1,4 +1,5 @@
 /* @flow */
+/* global handleClick */
 
 import React from 'react';
 import styled from 'styled-components';
@@ -21,7 +22,7 @@ const Button = styled.button`
 
 type Props = {
   selectId: Function,
-  id: Number,
+  id: string,
   selectedId: Number,
   children: string,
 };
@@ -34,6 +35,7 @@ export default class SizeButton extends React.Component<any, Props, any> {
   handleClick() {
     this.props.selectId(this.props.id);
   }
+  handleClick: Function;
 
   render() {
     return (

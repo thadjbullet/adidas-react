@@ -1,4 +1,5 @@
 /* @flow */
+/* global state, handleClick */
 
 import React from 'react';
 import styled from 'styled-components';
@@ -44,12 +45,14 @@ export default class Sidebar extends React.Component<any, any, State> {
     };
     this.handleClick = this.handleClick.bind(this);
   }
+  state: State;
 
-  handleClick(): void {
+  handleClick() {
     this.setState((state: { isMenuOpened: boolean }) => ({
       isMenuOpened: !state.isMenuOpened,
     }));
   }
+  handleClick: Function;
 
   render() {
     return (
