@@ -8,7 +8,7 @@ import Icon from './Icon';
 import Gender from './FilterGender';
 import Size from './FilterSize';
 
-const Header: StyledComponent = styled.header`
+const Header = styled.header`
   border-bottom: 4px solid #e7e7e7;
   align-items: center;
   display: flex;
