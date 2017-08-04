@@ -27,7 +27,7 @@ export const formatPrice = ({ price, currency }: { price: string, currency: stri
   };
   return currencies[currency];
 };
-export const imageLink = (id: string, fileName: string, height: string) =>
+export const imageLink = (id: string, fileName: string, height: string | number) =>
   `http://demandware.edgesuite.net/sits_pod20-adidas/dw/image/v2/aaqx_prd/on/demandware.static/-/Sites-adidas-products/en_US/${id}/zoom/${fileName}?sh=${height}`;
 export const getSizes = (products: Array<Object>): Array<Object> => {
   const sizes: Array<Object> = Array.from(

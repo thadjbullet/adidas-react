@@ -108,7 +108,7 @@ export default class ProductsList extends React.Component<any, Props, State> {
             ).map((item: { id: string, images: Array<{ id: string, fileName: string }> }) =>
               (<Col xs={12} sm={6} md={6} lg={4} key={item.id}>
                 <Card
-                  image={imageLink(item.images[0].id, item.images[0].fileName, '512')}
+                  image={imageLink(item.images[0].id, item.images[0].fileName, 512)}
                   to={`${this.props.match.url}/${item.id}`}
                   cost={item}
                   isSale={Math.random() > 0.7}
