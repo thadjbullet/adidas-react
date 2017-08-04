@@ -75,7 +75,7 @@ export default class Page extends React.Component<void, Props, State> {
     this.fetchData(props.match.url);
   }
 
-  /* eslint-disable no-console*/
+  /* eslint-disable no-console */
   fetchData(url: string) {
     get(url)
       .then((json: Object) =>
@@ -86,7 +86,7 @@ export default class Page extends React.Component<void, Props, State> {
       .catch((err: Error) => console.log('request failed: ', err));
   }
   fetchData: Function;
-  /* eslint-enable no-console*/
+  /* eslint-enable no-console */
 
   handleChangeColor(color: string) {
     this.setState({

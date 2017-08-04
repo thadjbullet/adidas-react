@@ -1,4 +1,4 @@
-/* @flow `*/
+/* @flow */
 /* eslint-disable global-require */
 /* global state */
 

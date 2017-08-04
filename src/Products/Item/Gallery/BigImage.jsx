@@ -1,5 +1,5 @@
 /* @flow */
-/* eslint-disable react/no-unused-prop-types*/
+/* eslint-disable react/no-unused-prop-types */
 
 import React from 'react';
 import styled from 'styled-components';
