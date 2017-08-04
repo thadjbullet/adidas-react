@@ -1,4 +1,6 @@
+/* @flow */
 /* eslint-disable global-require */
+/* global state */
 
 import React from 'react';
 import styled from 'styled-components';
@@ -25,13 +27,26 @@ const About = styled.p`
   padding: 0;
 `;
 
-export default class Galleryproduct extends React.Component {
-  constructor(props) {
+type Props = {
+  product: {
+    title: string,
+    images: Array<Object>,
+    description: string,
+  },
+};
+
+type State = {
+  selectedIndex: number,
+};
+
+export default class GalleryProduct extends React.Component<any, Props, State> {
+  constructor(props: Props) {
     super(props);
     this.state = { selectedIndex: 0 };
   }
+  state: State;
 
-  handleChangeImage(selectedIndex) {
+  handleChangeImage(selectedIndex: number) {
     this.setState({
       selectedIndex,
     });
@@ -40,20 +55,17 @@ export default class Galleryproduct extends React.Component {
   render() {
     return (
       <div>
-        <BigImage
-          product={this.props.product}
-          index={this.state.selectedIndex}
-        />
+        <BigImage product={this.props.product} index={this.state.selectedIndex} />
         <Gallery>
-          {this.props.product.images.map((image, index) => (
-            <Image
-              src={imageLink(image.id, image.fileName, 256)}
+          {this.props.product.images.map((image: { id: string, fileName: string }, index: number) =>
+            (<Image
+              src={imageLink(image.id, image.fileName, '256')}
               isSelected={this.state.selectedIndex === index}
               onChangeImage={() => this.handleChangeImage(index)}
               key={image.id}
               alt={this.props.product.title}
-            />
-          ))}
+            />),
+          )}
         </Gallery>
         <About>
           {this.props.product.description}

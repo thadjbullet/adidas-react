@@ -1,3 +1,6 @@
+/* @flow */
+/* global state, handleClick */
+
 import React from 'react';
 import styled from 'styled-components';
 import { withRouter } from 'react-router-dom';
@@ -28,15 +31,16 @@ const Title = styled.div`
       border-left: none;
       border-top: none;
       border-radius: 3px;
-      transform: ${props => (props.isOpen ? 'rotate(225deg)' : 'rotate(45deg)')};
+      transform: ${(props: { isOpen: boolean }) =>
+    (props.isOpen ? 'rotate(225deg)' : 'rotate(45deg)')};
       margin-left: 12px;
       transition-duration: 0.3s;
 
       &:hover {
         border: #fff;
       }
-    } 
-  `}
+    }
+  `};
 `;
 
 const Wrapper = styled.div`
@@ -44,21 +48,32 @@ const Wrapper = styled.div`
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-  `}
+  `};
 `;
 
-class Menu extends React.Component {
-  constructor(props) {
+type Props = {
+  children: string,
+  title: string,
+};
+
+type State = {
+  isOpen: boolean,
+};
+
+class Menu extends React.Component<any, Props, State> {
+  constructor(props: { children: string, title: string }) {
     super(props);
     this.state = { isOpen: false };
     this.handleClick = this.handleClick.bind(this);
   }
+  state: State;
 
   handleClick() {
-    this.setState(state => ({
+    this.setState((state: { isOpen: boolean }) => ({
       isOpen: !state.isOpen,
     }));
   }
+  handleClick: Function;
 
   render() {
     return (

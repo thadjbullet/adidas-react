@@ -1,3 +1,5 @@
+/* @flow */
+
 import React from 'react';
 import styled from 'styled-components';
 import media from '../../media';
@@ -45,7 +47,7 @@ const Cost = styled.h2`
   font-family: 'AvenirBold';
   padding: 10px 0;
   margin: 20px 0;
-  color: ${props => props.color};
+  color: ${(props: { color: string }) => props.color};
   font-weight: 400;
 
   ${media.sm('max')`
@@ -54,12 +56,10 @@ const Cost = styled.h2`
   `}
 `;
 
-const Wrapper = styled.div`
+const Wrapper = styled.div``;
 
-`;
-
-export default props => (
-  <Container>
+export default (props: { onChangeColor: Function, color: string, sale: boolean, cost: Object }) =>
+  (<Container>
     <ColorFilter>
       <Wrapper>
         <Button color="#c5c5c5" onChangeColor={props.onChangeColor} />
@@ -70,5 +70,4 @@ export default props => (
       {props.sale && <SaleLabel color={props.color}>Sale</SaleLabel>}
     </ColorFilter>
     <Cost color={props.color}>{formatPrice(props.cost)}</Cost>
-  </Container>
-);
+  </Container>);

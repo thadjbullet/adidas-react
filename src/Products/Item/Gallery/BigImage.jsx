@@ -1,3 +1,6 @@
+/* @flow */
+/* eslint-disable react/no-unused-prop-types */
+
 import React from 'react';
 import styled from 'styled-components';
 
@@ -11,16 +14,17 @@ const BigImage = styled.img`
 
   ${media.sm('min')`
     width: 80%;
-  `}
+  `};
 `;
 
-export default ({ product, index }) => (
-  <BigImage
-    src={imageLink(
-      product.images[index].id,
-      product.images[index].fileName,
-      1024,
-    )}
+export default ({
+  product,
+  index,
+  }: {
+  product: { images: Array<{ id: string, fileName: string }>, title: string },
+  index: number,
+}) =>
+  (<BigImage
+    src={imageLink(product.images[index].id, product.images[index].fileName, '1024')}
     alt={product.title}
-  />
-);
+  />);

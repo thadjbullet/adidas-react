@@ -1,3 +1,5 @@
+/* @flow */
+
 import React from 'react';
 import styled from 'styled-components';
 import media from '../../media';
@@ -21,12 +23,12 @@ const Title = styled.h1`
     & > br {
       display: none;
     }
-  `}
+  `};
 `;
 
 const SaveButton = styled.button`
   justify-content: center;
-  background: ${props => props.color};
+  background: ${(props: { color: string }) => props.color};
   align-items: center;
   font-size: 18px;
   text-transform: uppercase;
@@ -46,14 +48,15 @@ const SaveButton = styled.button`
 
   ${media.sm('max')`
     display: none;
-  `}
+  `};
 `;
 
-export default props => (
-  <header>
+export default (props: { children: string, color: string }) =>
+  (<header>
     <Container>
-      <Title>{props.children}</Title>
+      <Title>
+        {props.children}
+      </Title>
       <SaveButton color={props.color}>Save</SaveButton>
     </Container>
-  </header>
-);
+  </header>);

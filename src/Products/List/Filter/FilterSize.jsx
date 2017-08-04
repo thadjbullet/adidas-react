@@ -1,3 +1,6 @@
+/* @flow */
+/* global state, selectId */
+
 import React from 'react';
 import styled from 'styled-components';
 import SizeButton from './SizeButton';
@@ -7,7 +10,7 @@ import media from '../../../media';
 const Container = styled.div`
   ${media.xs('max')`
     padding-top: 10px;
-  `}
+  `};
 `;
 
 const Span = styled.span`
@@ -20,14 +23,24 @@ const Span = styled.span`
   text-transform: uppercase;
 `;
 
-export default class FilterSize extends React.Component {
-  constructor(props) {
+type Props = {
+  handleChooseFilter: Function,
+  sizes: Array<Object>,
+};
+
+type State = {
+  id: string,
+};
+
+export default class FilterSize extends React.Component<any, Props, State> {
+  constructor(props: Props) {
     super(props);
     this.state = { id: '' };
     this.selectId = this.selectId.bind(this);
   }
+  state: State;
 
-  selectId(id) {
+  selectId(id: string) {
     /* If click on same element - remove selection */
     if (this.state.id === id) {
       this.setState({ id: '' });
@@ -37,22 +50,18 @@ export default class FilterSize extends React.Component {
       this.props.handleChooseFilter(id);
     }
   }
+  selectId: Function;
 
   render() {
     return (
       <Container>
         <Span>Size</Span>
         {this.props.sizes &&
-          this.props.sizes.map(item => (
-            <SizeButton
-              selectId={this.selectId}
-              id={item}
-              selectedId={this.state.id}
-              key={item}
-            >
+          this.props.sizes.map(item =>
+            (<SizeButton selectId={this.selectId} id={item} selectedId={this.state.id} key={item}>
               {item}
-            </SizeButton>
-          ))}
+            </SizeButton>),
+          )}
       </Container>
     );
   }

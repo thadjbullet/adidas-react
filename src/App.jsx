@@ -2,12 +2,7 @@
 
 import React from 'react';
 import styled from 'styled-components';
-import {
-  BrowserRouter as Router,
-  Route,
-  Redirect,
-  Switch,
-} from 'react-router-dom';
+import { BrowserRouter as Router, Route, Redirect, Switch } from 'react-router-dom';
 
 import Sidebar from './Sidebar';
 import media from './media';
@@ -22,27 +17,18 @@ const View = styled.div`
   ${media.sm('max')`
     display: flex;
     flex-direction: column;
-  `}
+  `};
 `;
 
-export default () => (
-  <Router>
+export default () =>
+  (<Router>
     <View>
       <Sidebar />
       <Switch>
         <Redirect exact from="/" to="/products/football/cleats" />
-        <Route
-          exact
-          path="/products/:category/:section"
-          component={ProductList}
-        />
-        <Route
-          exact
-          path="/products/:category/:section/:id"
-          component={ProductItem}
-        />
+        <Route exact path="/products/:category/:section" component={ProductList} />
+        <Route exact path="/products/:category/:section/:id" component={ProductItem} />
         <Route exact path="/copyright" component={Copyright} />
       </Switch>
     </View>
-  </Router>
-);
+  </Router>);

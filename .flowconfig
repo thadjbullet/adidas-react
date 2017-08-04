@@ -1,9 +1,13 @@
 [ignore]
 .*/node_modules/eslint-plugin-jsx-a11y/.*
-.*/node_modules/styled-components/.*
+.*/node_modules/styled-components/src/.*
 
 [include]
 
 [libs]
-
+./flow-typed/npm/styled-components_v2.x.x.js
+./flow-typed/npm/react-router-dom_v4.x.x.js
 [options]
+
+[version]
+^0.51.0
